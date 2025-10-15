@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harishkumar-Portfolio</title>
+<style>
+/* ===========================
+   FONT-FACES
+=========================== */
+@font-face {font-family:"OldNewspaperTypes";src:url("fonts/OldNewspaperTypes.ttf") format("truetype");}
+@font-face {font-family:"SubwayNovella-KEw7";src:url("fonts/SubwayNovella-KEw7.ttf") format("truetype");}
+@font-face {font-family:"Docktrin";src:url("fonts/docktrin.ttf") format("truetype");}
+@font-face {font-family:"Break";src:url("fonts/Break.ttf") format("truetype");}
+@font-face {font-family:"Newton Howard Font";src:url("fonts/Newton Howard Font.ttf") format("truetype");}
+@font-face {font-family:"Enso-qWRq";src:url("fonts/Enso-qWRq.ttf") format("truetype");}
+@font-face {font-family:"Spell of Asia";src:url("fonts/Spell of Asia.ttf") format("truetype");}
+@font-face {font-family:"RingbearerMedium-51mgZ";src:url("fonts/RingbearerMedium-51mgZ.ttf") format("truetype");}
+@font-face {font-family:"dogicapixel";src:url("fonts/dogicapixel.ttf") format("truetype");}
+@font-face {font-family:"Times New Roman Regular";src:url("fonts/Times New Roman Regular.ttf") format("truetype");}
+
+
+
+body {             background-image: url('images/bg/riz-background.jpg'); transition: background-image 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+ color: #fff; overflow-x: hidden; margin-top: 20%; margin-bottom: 5%; margin-left: 50px; }
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  position:fixed;top:1%;left:50%;transform:translateX(-50%);
+  width:88%;background:transparent;backdrop-filter:blur(50px);
+  display:flex;justify-content:space-around;align-items:center;
+  padding:18px 36px;border-radius:20px;z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+header .logo {font-family:"Break",sans-serif;font-size:1.5rem;color:#fff;margin-right:auto;}
+header nav {display:flex;gap:30px;margin-left:auto;}
+header nav a {color:#fff;text-decoration:none;font-family:"Times New Roman Regular",sans-serif;font-size:0.9rem;transition:color 0.3s;}
+header nav a:hover {color:#ffe4a4;}
+header nav a.active {color:#ffd369;border-bottom:2px solid #ffd369;}
+
+/* ===========================
+   LOADING
+=========================== */
+/* Loader overlay */
+#page-loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#202628;
+  z-index: 3000;
+  transition: opacity 0.6s ease;
+}
+
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loader circle */
+.loader-circle-87 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.loader-circle-87::after,
+.loader-circle-87::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: solid 8px transparent;
+    border-radius: 50%;
+    animation: loader-circle-87-spin 1.4s ease infinite;
+}
+.loader-circle-87::before {
+    border-top-color: #cddc39;
+    border-bottom-color: #ff9800;
+}
+.loader-circle-87::after {
+    border-left-color: #03a9f4;
+    border-right-color: #e91e63;
+    animation-delay: 0.7s;
+}
+
+@keyframes loader-circle-87-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.5); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+
+
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+.section.home
+{background:rgba(0,0,0,0.2);backdrop-filter:blur(10px);border-radius:16px;max-width:800px; margin-left:50px;
+  padding:1.8rem;text-align:left;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+.home p1 {
+  font-size:2rem;font-family:"Docktrin",sans-serif;
+  display:flex;align-items:baseline;gap:75px;
+  background:linear-gradient(90deg,#BF953F,#FCF6BA,#B38728,#FBF5B7,#AA771C);
+  -webkit-background-clip:text;color:transparent;
+}
+
+p {display:flex;align-items:baseline;color:#CFCFCF;font-family:"Enso-qWRq",sans-serif;
+font-size:1rem;line-height:1.6;margin-top:1rem;    text-align: justify;}
+#typing {
+  font-family:"OldNewspaperTypes",sans-serif;font-size:1.5rem;
+  white-space:nowrap;overflow:hidden;
+  background-image:linear-gradient(to bottom left,#f5f5dc,#fbfbfb);
+  -webkit-background-clip:text;color:transparent;
+}
+
+
+/* ===========================
+   EXPERIENCE TIMELINE
+=========================== */
+.experience-timeline {margin-top:50px;margin-bottom:80px;color:#fff;max-width:900px;position:relative;}
+.section-title {
+  font-size:2rem;font-weight:400; background: linear-gradient(-45deg, #ffd369, #ffc75f, #ffb347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;;text-align:center; margin-bottom:50px;
+  letter-spacing:1px;font-family:"RingbearerMedium-51mgZ",sans-serif;
+}
+.timeline-container {position:relative;padding-left:50px;padding-top:10px;}
+.timeline-container::before {
+  content:'';position:absolute;left:25px;top:18px;bottom:0;width:4px;padding-top:10px;
+  background:linear-gradient(to bottom,#ffd369,#bf953f);opacity:0.5;border-radius:2px;
+}
+.timeline-card {position:relative;display:flex;align-items:flex-start;margin:50px 0 2rem;}
+.timeline-dot {
+  position:absolute;top:-15px;left:-31px;width:10px;height:10px; 
+  background:#ffd369;border-radius:50%;border:3px solid #fff;
+  box-shadow:0 0 10px rgba(255,211,105,0.8);
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+.timeline-card:hover .timeline-dot {transform:scale(1.2);box-shadow:0 0 15px rgba(255,211,105,1);}
+.exp-card {
+  background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);border-radius:0px 30px 30px 30px;
+  padding:1.8rem;width:100%;text-align:left;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5);transition:0.3s;position:relative;
+}
+.exp-card::before {
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+  background:linear-gradient(45deg,rgba(255,211,105,0.1),transparent);
+  opacity:0;transition:opacity 0.3s;    pointer-events: none; /* 🔑 allow child hover */
+
+}
+.exp-card:hover {transform:translateY(-8px);box-shadow:0 8px 20px rgba(255,211,105,0.4);}
+.exp-header {display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+.exp-header h4 {margin:0;font-size:1.5rem;color:#fff;font-weight:normal;font-family:"SubwayNovella-KEw7",sans-serif;}
+.company {font-style:italic;font-size:1rem;margin:0.5rem 0;color:white ;font-weight:normal;font-family:"Enso-qWRq",sans-serif;}
+.tags {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;}
+.exp-card { overflow: visible; } /* allow scaling */
+.tags span {
+    background: rgba(255,211,105,0.1);
+    color: #ffd369;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: "Enso-qWRq", sans-serif;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.tags span:hover {
+    background: rgba(255,211,105,0.4);
+    transform: scale(1.05);
+}
+
+.exp-date {background:rgba(255,211,105,0.1);padding:5px 12px;border-radius:12px;font-family:"dogicapixel",sans-serif;font-size:0.75rem;color:#ffd369;}
+
+
+/* ===========================
+   SKILLS
+=========================== */
+.skills-cards {margin-top:2rem;max-width:900px;flex-direction:column;gap:2rem;}
+.skill-category {display:flex;flex-direction:column;gap:1rem;}
+.category-title {font-size:1.5rem;color:#fff;font-family:"RingbearerMedium-51mgZ",sans-serif;font-weight:normal;margin-bottom:1rem;margin-top:40px;margin-bottom:40px;}
+.skills-grid {display:flex;flex-wrap:wrap;gap:1rem;margin-left: 50px; }
+.skill-card {
+  background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,0.4);
+padding:1rem;border-radius:50px 50px 0px 50px;
+  width:120px;height:130px;position:relative;text-align:center;
+  transition:0.3s;
+}
+.skill-card:hover {transform:translateY(-5px);box-shadow:0 8px 20px rgba(255,211,105,0.8);}
+.skill-card img {
+  position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+  width:75px;height:75px;object-fit:contain;transition:opacity 0.3s;
+}
+.skill-card .skill-static {opacity:1;}
+.skill-card .skill-hover {opacity:0;}
+.skill-card:hover .skill-static {opacity:0;}
+.skill-card:hover .skill-hover {opacity:1;}
+.skill-name {
+  position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
+  font-size:1rem;color:#fff;width:140px;font-family:"Enso-qWRq",sans-serif;z-index:10;
+}
+
+
+/* ===========================
+   MOBILE COMPACT VERSION
+=========================== */
+@media (max-width: 768px) {
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: url('images/bg/riz-mobile.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-color: #000; /* fallback color when image isn't visible */
+        overscroll-behavior: none; /* Prevent white overscroll background */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body {
+        margin-top: 80%;
+        margin-bottom: 50px;
+        margin-left: 5px;
+        margin-right: 0;
+    }
+
+  /* HEADER */
+  header {
+    width: 88%;
+    padding: 10px 18px;
+    border-radius: 12px;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* MENU PANEL */
+  header nav {
+    position: fixed;
+    top: 0%;
+    right: -100%;
+    width: 55%; 
+    height: 100vh; 
+    border-left: 2px solid #ffd369; 
+    border-bottom-left-radius: 20px; 
+    background: #4A3700; 
+    backdrop-filter: blur(8px); 
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding-top: 100px; 
+    padding-left: 30px; 
+    gap: 1.8rem; 
+    transition: right 0.4s cubic-bezier(0.7, 0, 0.3, 1); 
+    z-index: 1000;
+  }
+
+  header nav.active {
+    right: 0;
+  }
+
+ header nav a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #ffd369;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+
+  /* CONTENT ADJUSTMENTS */
+.experience-timeline, .skills-cards {
+    margin: 0 ;
+    padding: 1rem;
+    width: 90%;
+  }
+.section.home {
+        box-sizing: border-box; 
+        width: 100%; 
+        margin: 0 0; 
+        padding: 1rem; 
+        overflow-x: hidden;
+    }
+
+
+  .home p1 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+#typing, .exp-header h4 {
+    font-size: 1rem;
+
+}
+
+.exp-date
+{
+    font-size: 0.5rem;padding: 3px 10px;    align-items: center;
+
+
+
+}
+.tags span 
+{
+    font-size: 0.65rem;
+padding: 3px 10px;
+
+}
+
+.company 
+{
+    font-size: 0.85rem;
+
+}
+
+  p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+ .section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    border-bottom:1px solid white;
+border-top:1px solid white;
+    }
+
+  .category-title {
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 20px 0;
+  }
+
+
+  .skills-grid {
+    justify-content: flex-start;
+    margin-left: 0;
+    gap: 0.6rem;
+    margin-bottom: 20px;
+
+  }
+
+  .skill-card {
+    width: 70px;
+    height: 80px;
+    padding: 0.8rem;
+    border-radius: 30px 30px 0 30px;
+  }
+
+  .skill-card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skill-name {
+    font-size: 0.75rem;
+  width:90px;}
+
+  /* Loader smaller */
+  .loader-circle-87 {
+    height: 35px;
+    justify-content: center;
+    width: 35px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-circle-87"></div>
+</div>
+
+
+  <header>
+  <div class="logo">Portfolio</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <a href="index.html" class="active">HOME</a>
+    <a href="works.html">WORKS</a>
+    <a href="certificate.html">CERTIFICATE</a>
+    <a href="resume.html">RESUME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+</header>
+
+
+  
+ 
+
+
+  
+
+  <!-- First Home Container -->
+  
+  <div class="section home " id="home1">
+    <div class="sha1" id="sha1">
+      <p>Hello! I'm</p>
+      <p1>
+        Harishkumar R
+        <span id="typing"></span>
+      </p1>
+      <p>
+        I love creating designs that not only look great but also solve problems.<br>
+        Over time, I’ve worked on projects that mix visual creativity with marketing strategy, helping brands grow digitally.<br>
+        When I’m not working on designs, I experiment with video storytelling and social media content.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second Home Container -->
+  <div class="experience section " id="experiencesection ">
+      <section id="experience" class="experience-timeline">
+  <p2 class="section-title">Experience</p2>
+  <div class="timeline-container">
+    <!-- Card 1 -->
+    <div class="timeline-card" data-aos="fade-up">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Digital Marketing </h4>
+          <span class="exp-date">Jun 2024 – Aug 2025</span>
+        </div>
+        <p class="company">Skyplanet Holidays · Madurai</p>
+        <div class="tags">
+          <span>Canva</span><span>Excel</span><span>CapCut</span><span>After Effects</span>
+          <span>Meta Ads</span><span>Google Ads</span><span>YouTube Ads</span><span>SEO</span>
+        </div>
+        <p class="exp-desc">
+          ✾ Created impactful posts and promotional videos.<br>
+          ✾ Managed paid campaigns across multiple ad platforms.<br>
+          ✾ Increased brand visibility with SEO strategies.
+        </p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="timeline-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Freelance Projects</h4>
+          <span class="exp-date">2025</span>
+        </div>
+        <p class="company">Zutriva Startup</p>
+        <div class="tags">
+          <span>Canva</span><span>Photoshop</span><span>HTML</span><span>CSS</span>
+          <span>CapCut</span><span>Meta Ads</span>
+        </div>
+        <p class="exp-desc">
+          ✾ Boosted startup success through creative campaigns.<br>
+          ✾ Designed 20+ posts and video ads.<br>
+          ✾ Built 2 functional websites to establish online presence.<br>
+          ✾ Developed automated CRM tools for invoice generation,  ticket creation, WhatsApp notifications and so.
+        </p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="timeline-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Freelance Projects</h4>
+          <span class="exp-date">2025</span>
+        </div>
+        <p class="company">Ilam Kalvi Startup</p>
+        <div class="tags">
+          <span>Canva</span><span>Photoshop</span><span>HTML</span><span>CSS</span>
+          <span>Pipedream</span><span>Python</span>
+        </div>
+        <p class="exp-desc">
+          ✾ Developed and finalized the startup logo and visual identity.<br>
+          ✾ Built and launched a dedicated website for educational study resources.<br>
+          ✾ Created an automated message sender bot on Telegram for communication and outreach.
+        </p>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="timeline-card" data-aos="fade-up" data-aos-delay="600">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Freelance Projects</h4>
+          <span class="exp-date">2024</span>
+        </div>
+        <p class="company">AI Short Film</p>
+        <div class="tags">
+          <span>ChatGPT</span><span>Meta AI</span><span>RunWay</span><span>Pixverse AI</span>
+          <span>Eleven Labs</span><span>Capcut</span><span>Aftereffect</span>
+        </div>
+        <p class="exp-desc">
+          ✾ Leveraged ChatGPT and Meta AI for scriptwriting, conceptualizing, and story development.<br>
+          ✾ Utilized RunWay and Pixverse AI for generating video clips, animation, and visual elements.<br>
+          ✾ Employed Eleven Labs for creating realistic and dynamic AI-generated voiceovers.<br>
+          ✾ Used Capcut and Aftereffect for final editing, visual effects, and sound synchronization.
+        </p>
+      </div>
+    </div>
+<!-- Card 5 -->
+<div class="timeline-card" data-aos="fade-up">
+  <div class="timeline-dot"></div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <h4>Assembly Operator</h4>
+      <span class="exp-date">May 2023 – May 2024</span>
+    </div>
+    <p class="company">NCR Atleos · Chennai</p>
+    <div class="tags">
+      <span>ATM Manufacturing</span><span>Assembly</span><span>Quality Check</span><span>Production</span>
+    </div>
+    <p class="exp-desc">
+      ✾ Operated assembly line for ATM manufacturing.<br>
+      ✾ Worked on Faceia and Shutter sub-assemblies.<br>
+      ✾ Ensured quality control and timely production output.
+    </p>
+  </div>
+</div>
+  </div>
+</section>
+    </div>
+  </div>
+
+<!-- third Home Container -->
+<div class="skills section " id="skillssection">
+  <div class="sha4" id="sha4">
+    <section id="skills" class="skills-cards">
+      <p2 class="section-title">Skills</p2>
+
+      <div class="skill-category">
+  <h3 class="category-title">Design</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/imagesuiux.png" alt="UI/UX Design" class="skill-static">
+      <img src="images/gif/uiux.gif" alt="UI/UX Design" class="skill-hover">
+      <div class="skill-name">UI/UX Design</div>
+    </div>
+      <div class="skill-card">
+      <img src="images/Png/logo.png" alt="Logo Design" class="skill-static">
+      <img src="images/gif/logo.gif" alt="Logo Design" class="skill-hover">
+      <div class="skill-name">Logo Design</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/poster.png" alt="Poster & Flyer Design" class="skill-static">
+      <img src="images/gif/poster.gif" alt="Poster & Flyer Design" class="skill-hover">
+      <div class="skill-name">Poster Design</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/app.png" alt="App Design" class="skill-static">
+      <img src="images/gif/app.gif" alt="App Design" class="skill-hover">
+      <div class="skill-name">App Design</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/web.png" alt="Web Design" class="skill-static">
+      <img src="images/gif/web.gif" alt="Web Design" class="skill-hover">
+      <div class="skill-name">Web Design</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/canva.png" alt="Canva" class="skill-static">
+      <img src="images/gif/canva.gif" alt="Canva" class="skill-hover">
+      <div class="skill-name">Canva</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/figma.png" alt="Figma" class="skill-static">
+      <img src="images/gif/figma.gif" alt="Figma" class="skill-hover">
+      <div class="skill-name">Figma</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/photoshop.png" alt="Photoshop" class="skill-static">
+      <img src="images/gif/photoshop.gif" alt="Photoshop" class="skill-hover">
+      <div class="skill-name">Photoshop</div>
+    </div>
+   
+  </div>
+</div>
+
+<div class="skill-category">
+  <h3 class="category-title">Coding</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/html.png" alt="HTML & CSS" class="skill-static">
+      <img src="images/gif/html.gif" alt="HTML & CSS" class="skill-hover">
+      <div class="skill-name">HTML & CSS</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/python.png" alt="python" class="skill-static">
+      <img src="images/gif/python.gif" alt="python" class="skill-hover">
+      <div class="skill-name">Python</div>
+    </div>
+      <div class="skill-card">
+      <img src="images/Png/wordpress.png" alt="Wordpress" class="skill-static">
+      <img src="images/gif/wordpress.gif" alt="Wordpress" class="skill-hover">
+      <div class="skill-name">Wordpress</div>
+    </div>
+   </div>
+</div>
+
+<div class="skill-category">
+  <h3 class="category-title">Video Editing</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/cinematic.png" alt="Cinematic Editing" class="skill-static">
+      <img src="images/gif/cinematic.gif" alt="Cinematic Editing" class="skill-hover">
+      <div class="skill-name">Cinematic Editing</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/colorgrading.png" alt="Color Grading" class="skill-static">
+      <img src="images/gif/colorgrading.gif" alt="Color Grading" class="skill-hover">
+      <div class="skill-name">Color Grading</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/aftereffects.png" alt="After Effects" class="skill-static">
+      <img src="images/gif/aftereffects.gif" alt="After Effects" class="skill-hover">
+      <div class="skill-name">After Effects</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/sound.png" alt="Sound Design" class="skill-static">
+      <img src="images/gif/sound.gif" alt="Sound Design" class="skill-hover">
+      <div class="skill-name">Audio Editing</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/storyboard.png" alt="Storyboarding" class="skill-static">
+      <img src="images/gif/storyboard.gif" alt="Storyboarding" class="skill-hover">
+      <div class="skill-name">Storyboarding</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/capcut.png" alt="Capcut" class="skill-static">
+      <img src="images/gif/capcut.gif" alt="Capcut" class="skill-hover">
+      <div class="skill-name">Capcut</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/DaVinci Resolve.png" alt="DaVinci Resolve" class="skill-static">
+      <img src="images/gif/DaVinci Resolve.gif" alt="DaVinci Resolve" class="skill-hover">
+      <div class="skill-name">DaVinci Resolve</div>
+    </div>
+  </div>
+</div>
+
+<div class="skill-category">
+  <h3 class="category-title">Digital Marketing</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/socialmedia.png" alt="Social Media Marketing" class="skill-static">
+      <img src="images/gif/socialmedia.gif" alt="Social Media Marketing" class="skill-hover">
+      <div class="skill-name">Social Media Marketing</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/seo.png" alt="SEO" class="skill-static">
+      <img src="images/gif/seo.gif" alt="SEO" class="skill-hover">
+      <div class="skill-name">SEO</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/googleads.png" alt="Google Ads" class="skill-static">
+      <img src="images/gif/googleads.gif" alt="Google Ads" class="skill-hover">
+      <div class="skill-name">Google Ads</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/meta.png" alt="Meta Ads" class="skill-static">
+      <img src="images/gif/meta.gif" alt="Meta Ads" class="skill-hover">
+      <div class="skill-name">Meta Ads</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/emailmarketig.png" alt="Email Marketing" class="skill-static">
+      <img src="images/gif/emailmarketig.gif" alt="Email Marketing" class="skill-hover">
+      <div class="skill-name">Email Marketing</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/analytics.png" alt="Analytics" class="skill-static">
+      <img src="images/gif/analytics.gif" alt="Analytics" class="skill-hover">
+      <div class="skill-name">Analytics & Reporting</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/copywriting.png" alt="Copywriting" class="skill-static">
+      <img src="images/gif/copywriting.gif" alt="Copywriting" class="skill-hover">
+      <div class="skill-name">Copywriting</div>
+    </div>
+  </div>
+</div>
+
+<div class="skill-category">
+  <h3 class="category-title">AI Tools</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/chatgpt.png" alt="Chatgpt" class="skill-static">
+      <img src="images/gif/chatgpt.gif" alt="Chatgpt" class="skill-hover">
+      <div class="skill-name">ChatGPT</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/Gemini.png" alt="Gemini" class="skill-static">
+      <img src="images/gif/Gemini.gif" alt="Gemini" class="skill-hover">
+      <div class="skill-name">Gemini</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/png/Grok.png" alt="Grok" class="skill-static">
+      <img src="images/gif/Grok.gif" alt="Grok" class="skill-hover">
+      <div class="skill-name">Grok</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/png/metaai.png" alt="Meta AI" class="skill-static">
+      <img src="images/gif/metaai.gif" alt="Meta AI" class="skill-hover">
+      <div class="skill-name">Meta AI</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/midjourney.png" alt="Midjourney" class="skill-static">
+      <img src="images/gif/midjourney.gif" alt="Midjourney" class="skill-hover">
+      <div class="skill-name">Midjourney</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/stablediffusion.png" alt="Stable Diffusion" class="skill-static">
+      <img src="images/gif/stablediffusion.gif" alt="Stable Diffusion" class="skill-hover">
+      <div class="skill-name">Stable Diffusion</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/Runway.png" alt="Runway" class="skill-static">
+      <img src="images/gif/Runway.gif" alt="Runway" class="skill-hover">
+      <div class="skill-name">Runway</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/pixverse.png" alt="Pixverse AI" class="skill-static">
+      <img src="images/gif/pixverse.gif" alt="Pixverse AI" class="skill-hover">
+      <div class="skill-name">Pixverse AI</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/elevenlabs.png" alt="Eleven Labs" class="skill-static">
+      <img src="images/gif/elevenlabs.gif" alt="Eleven Labs" class="skill-hover">
+      <div class="skill-name">Eleven Labs</div>
+    </div>
+  </div>
+</div>
+<div class="skill-category">
+  <h3 class="category-title">Automated crm Softwares</h3>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="images/Png/botmaster.png" alt="Botmaster" class="skill-static">
+      <img src="images/gif/botmaster.gif" alt="Botmaster" class="skill-hover">
+      <div class="skill-name">Botmaster</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/wati.png" alt="WATI" class="skill-static">
+      <img src="images/gif/wati.gif" alt="WATI" class="skill-hover">
+      <div class="skill-name">WATI</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/aisensy.png" alt="Aisensy" class="skill-static">
+      <img src="images/gif/aisensy.gif" alt="Aisensy" class="skill-hover">
+      <div class="skill-name">Aisensy</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/manychat.png" alt="ManyChat" class="skill-static">
+      <img src="images/gif/manychat.gif" alt="ManyChat" class="skill-hover">
+      <div class="skill-name">ManyChat</div>
+    </div>
+    <div class="skill-card">
+      <img src="images/Png/pipedream.png" alt="Pipedream" class="skill-static">
+      <img src="images/gif/pipedream.gif" alt="Pipedream" class="skill-hover">
+      <div class="skill-name">Pipedream</div>
+    </div>
+  </div>
+  </section>
+  </div>
+  </div>
+
+<script>
+  const texts = ["UI/UX Designer", "Video Editor", "Digital Marketing", "Developer"];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingTimer = null;
+
+  const typingElement = document.getElementById("typing");
+  const navLinks = document.querySelectorAll("header nav a");
+  const body = document.body;
+
+  /* ===========================
+     LOADER & INITIAL START
+  =========================== */
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+      // 1. Add fade-out class
+      loader.classList.add('fade-out');
+
+      // 2. Wait for fade animation to finish (600ms), then remove from DOM
+      setTimeout(() => {
+        loader.style.display = 'none';
+        
+        // 3. 🚀 Start the typing effect after the loader is gone
+        typeEffect();
+      }, 600); 
+    } else {
+      // Fallback: If loader is missing, start typing immediately
+      typeEffect();
+    }
+  });
+
+  /* ===========================
+     TYPING EFFECT LOGIC
+  =========================== */
+  function typeEffect() {
+    if (!typingElement) return;
+    const currentText = texts[textIndex];
+
+    if (!isDeleting) {
+      // Typing forward
+      typingElement.textContent = currentText.slice(0, ++charIndex);
+      if (charIndex === currentText.length) {
+        isDeleting = true;
+        typingTimer = setTimeout(typeEffect, 1000); // Pause at the end of the word
+        return;
+      }
+    } else {
+      // Deleting backward
+      typingElement.textContent = currentText.slice(0, --charIndex);
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length; // Move to the next text
+      }
+    }
+
+    // Speed control: Slower when typing (100ms), faster when deleting (50ms)
+    typingTimer = setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+
+  function stopTyping() {
+    if (typingTimer) clearTimeout(typingTimer);
+  }
+
+  /* ===========================
+     NAVIGATION (Optional, based on your structure)
+  =========================== */
+  function navigateToSection(targetGroup) {
+    stopTyping();
+    navLinks.forEach(l => l.classList.remove("active"));
+    
+    const activeLink = document.querySelector(`a[href="#${targetGroup}"]`);
+    if (activeLink) activeLink.classList.add("active");
+
+    const sections = document.querySelectorAll(".section");
+    sections.forEach(sec => {
+      sec.style.display = "none";
+      sec.classList.remove("active");
+    });
+
+    const targetSections = document.querySelectorAll(`.section[data-group='${targetGroup}']`);
+    targetSections.forEach(sec => {
+      sec.style.display = "block";
+      sec.classList.add("active");
+    });
+
+    // Re-start typing if navigating back to the home section
+    if (targetGroup === "home" && typingElement) {
+      textIndex = 0;
+      charIndex = 0;
+      isDeleting = false;
+      typingElement.textContent = "";
+      typeEffect();
+    }
+
+    setActiveSection(targetGroup);
+  }
+
+
+  /* Updated JavaScript to close the menu on outside click */
+
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Optional: Close nav when a link is clicked
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+
+// =========================================================
+// NEW CODE FOR CLOSING ON OUTSIDE CLICK/TOUCH
+// =========================================================
+
+document.addEventListener('click', (event) => {
+  // Check if the navigation menu is currently open (i.e., has the 'active' class)
+  const isNavOpen = nav.classList.contains('active');
+
+  // Check if the click/touch target is OUTSIDE both the navigation and the hamburger
+  const isClickInsideNav = nav.contains(event.target);
+  const isClickInsideHamburger = hamburger.contains(event.target);
+
+  // If the menu is open AND the click is NOT inside the nav AND the click is NOT on the hamburger...
+  if (isNavOpen && !isClickInsideNav && !isClickInsideHamburger) {
+    // ...then close the menu by removing the 'active' classes
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,2616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harishkumar-Works</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ===========================
+   FONT-FACES
+=========================== */
+@font-face {font-family:"OldNewspaperTypes";src:url("fonts/OldNewspaperTypes.ttf") format("truetype");}
+@font-face {font-family:"SubwayNovella-KEw7";src:url("fonts/SubwayNovella-KEw7.ttf") format("truetype");}
+@font-face {font-family:"Docktrin";src:url("fonts/docktrin.ttf") format("truetype");}
+@font-face {font-family:"Break";src:url("fonts/Break.ttf") format("truetype");}
+@font-face {font-family:"Newton Howard Font";src:url("fonts/Newton Howard Font.ttf") format("truetype");}
+@font-face {font-family:"Spell of Asia";src:url("fonts/Spell of Asia.ttf") format("truetype");}
+@font-face {font-family:"RingbearerMedium-51mgZ";src:url("fonts/RingbearerMedium-51mgZ.ttf") format("truetype");}
+@font-face {font-family:"dogicapixel";src:url("fonts/dogicapixel.ttf") format("truetype");}
+@font-face {font-family:"Times New Roman Regular";src:url("fonts/Times New Roman Regular.ttf") format("truetype");}
+
+
+/* Reset & body */
+
+body { background: #0C040E; color: #fff; overflow-x: hidden; }
+
+
+/* Portfolio section */
+.portfolio-section { max-width: 92%; margin: 0px auto;  padding: 20px; }
+.section-title { text-align: center; font-size: 2.8em;font-family:"Newton Howard Font",sans-serif;font-weight:normal;margin-top: 6%; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(90deg, #b57edc, #c299e5, #9f63d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;}
+
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  position:fixed;top:1%;left:50%;transform:translateX(-50%);
+  width:88%;background:transparent;backdrop-filter:blur(50px);
+  display:flex;justify-content:space-around;align-items:center;
+  padding:18px 36px;border-radius:20px;z-index:1001;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+header .logo {font-family:"Break",sans-serif;font-size:1.5rem;color:#fff;margin-right:auto;}
+header nav {display:flex;gap:30px;margin-left:auto;}
+header nav a {color:#fff;text-decoration:none;font-family:"Times New Roman Regular",sans-serif;font-size:0.9rem;transition:color 0.3s;}
+header nav a:hover {color:rgba(220,208,255, 0.7);}
+header nav a.active {color:#b19cd9;border-bottom:2px solid #b19cd9;}
+
+
+/* ===========================
+   LOADING
+=========================== */
+/* Loader overlay */
+#page-loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#202628;
+  z-index: 3000;
+  transition: opacity 0.6s ease;
+}
+
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loader circle */
+.loader-circle-87 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.loader-circle-87::after,
+.loader-circle-87::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: solid 8px transparent;
+    border-radius: 50%;
+    animation: loader-circle-87-spin 1.4s ease infinite;
+}
+.loader-circle-87::before {
+    border-top-color: #cddc39;
+    border-bottom-color: #ff9800;
+}
+.loader-circle-87::after {
+    border-left-color: #03a9f4;
+    border-right-color: #e91e63;
+    animation-delay: 0.7s;
+}
+
+@keyframes loader-circle-87-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.5); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+
+/* ===========================
+   SORT - Modern Minimal Purple Tabs
+=========================== */
+sort {
+  margin-left: 70px;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 2px solid rgba(160, 90, 255, 0.2);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Each tab */
+sort .item {
+  position: relative;
+  padding: 18px 4px 4px 4px;
+  color: WHITE;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover animation - underline slide in */
+sort .item::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgba(220,208,255, 0.7);
+  transition: width 0.3s ease;
+}
+
+/* Hover state */
+sort .item:hover {
+  color: rgba(220,208,255, 0.7);
+  transform: translateY(-2px);
+}
+
+sort .item:hover::after {
+  width: 100%;
+}
+
+/* Active state */
+sort .item.active {
+  color: #b19cd9;
+  font-weight: 600;
+}
+
+sort .item.active::after {
+  width: 100%;
+  background-color: #b19cd9;
+}
+
+/* Click feedback */
+sort .item:active {
+  transform: scale(0.97);
+}
+
+
+
+
+h4 {
+  font-family: 'SubwayNovella-KEw7', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #b19cd9; /* soft purple */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+
+
+/* ===========================
+WORK CARD 
+=========================== */
+
+/* Grid */
+.works-grid { 
+    display: grid; 
+grid-template-columns: repeat(4, 1fr);
+    gap: 25px; 
+    position: relative;
+
+}
+
+/* Update work-card to avoid fixed height */
+.work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #2a2a2a;
+    cursor: pointer;
+padding:0 10px;
+margin-bottom: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    pointer-events: auto;
+    will-change: transform, top, left, width, height;
+    display: flex; /* Use flex to allow content to dictate size */
+    flex-direction: column;
+}
+
+/* Remove fixed height for work-image, let it adjust naturally */
+.work-image {
+    width: 100%;
+    height: auto; /* Changed from fixed 220px */
+    max-height: 220px; /* Optional: cap the height to prevent overly large images */
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    transition: all 0.4s ease, clip-path 0.4s ease;
+}
+
+/* Adjust zoomed state to be more flexible */
+.work-card.zoomed {
+    z-index: 1000;
+    box-shadow: 0 0px 18px rgba(220,208,255, 0.8);
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 90%;
+padding:0;
+    height: auto; /* Allow height to adjust based on content */
+    min-height: auto; /* Remove fixed min-height */
+}
+
+/* Ensure work-media-zoom adjusts dynamically */
+.work-card.zoomed .work-media-zoom {
+    height: auto; /* Changed from fixed 300px */
+    max-height: 300px; /* Optional: cap the height */
+    display: block;
+}
+
+/* Update mobile-specific styles */
+@media (max-width: 768px) {
+    .work-image {
+        height: auto; /* Changed from fixed 150px */
+        max-height: 150px; /* Optional: cap the height */
+    }
+
+    .work-card.zoomed {
+        width: 95%;
+        max-width: none;
+        height: auto; /* Allow height to adjust */
+        min-height: auto; /* Remove fixed min-height */
+    }
+
+    .work-card.zoomed .work-media-zoom {
+        height: 0;
+        padding-top: 56.25%; /* Maintain 16:9 aspect ratio */
+        position: relative;
+    }
+}
+
+.work-card:hover { 
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+    box-shadow: 0 8px 16px rgba(220,208,255, 0.8);
+}
+
+/* Images & overlay (Small Preview State) */
+.work-image { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); 
+    transition: all 0.4s ease, clip-path 0.4s ease; 
+
+}
+
+.work-overlay {
+    padding: 10px; /* Reduced padding to minimize vertical space */
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.work-title {
+    font-size: 1.2em;
+    color: #b19cd9;
+    font-family: "RingbearerMedium-51mgZ", sans-serif;
+    font-weight: normal;
+    opacity: 1;
+    margin-top: 15px;
+margin-left:15px;
+margin-right:15px;
+    font-family: "dogicapixel", sans-serif;
+
+ /* Remove default margin */
+}
+
+
+.work-description {
+    font-size: 1em;
+    font-family: "poppins", sans-serif;
+    color: #ccc;
+    opacity: 1;
+    margin: 20px; /* Small top margin for minimal spacing */
+}
+.work-card.zoomed .work-description {
+    margin-bottom: 0; /* Ensure no bottom margin in zoomed state */
+}
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .work-overlay {
+        padding: 8px; /* Further reduce padding on mobile */
+    }
+
+    .work-title {
+        font-size: 1rem;
+    }
+
+    .work-description {
+        font-size: 0.95rem;
+    margin: 0; /* Small top margin for minimal spacing */
+
+    }
+}
+
+
+.work-media-zoom {
+    width: 100%;
+    height: 0; /* Initially collapse the container */
+    border-radius: 10px 10px 0 0;
+    clip-path: none !important;
+    flex-shrink: 0;
+    transition: height 0.4s ease;
+    display: none; /* Hide container when not zoomed */
+    position: relative; /* Make it the positioning context for media controls */
+}
+
+.work-card.zoomed .work-media-zoom {
+    height: 300px; /* Zoomed image height */
+    border-radius: 10px 10px 0 0;
+    display: block; /* Show container when zoomed */
+}
+
+.work-media-zoom video,
+.work-media-zoom img.zoomed-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    display: block;
+}
+
+.media-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1002;
+}
+
+.work-card.zoomed .media-controls {
+    opacity: 1;
+    visibility: visible;
+}
+
+.media-button {
+    background: #000;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #A020F0;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.media-button:hover {
+    background: #1D121E;
+}
+
+@media (max-width: 768px) {
+    .work-card.zoomed .work-media-zoom {
+        height: 0;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+        position: relative;
+    }
+
+    .work-card.zoomed .work-media-zoom video,
+    .work-card.zoomed .work-media-zoom img.zoomed-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .media-controls {
+        bottom: 8px;
+        right: 8px;
+        gap: 8px;
+    }
+
+    .media-button {
+        width: 32px;
+        height: 32px;
+        font-size: 1em;
+    }
+}
+
+.work-card.zoomed .work-image {
+    display: none; /* Hide the static JPG when zoomed */
+}
+/* --- END NEW MEDIA STYLES --- */
+
+
+
+.work-card.zoomed .work-image { 
+    height: 300px;
+    clip-path: none;
+    flex-shrink: 0;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+}
+.work-card.zoomed .close-button { 
+    opacity: 1; 
+    visibility: visible; 
+}
+.close-button:hover { 
+    background: #cc0000; 
+}
+
+/* Expanded Details Section */
+.work-details {
+    padding: 0 20px 0px 20px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    z-index: 3;
+    background: #2a2a2a;
+    position: relative;
+    flex-grow: 0;
+}
+.work-card.zoomed .work-details {
+    opacity: 1;
+    max-height: 1000px;
+border-radius: 50px;
+
+    padding: 20px;
+    visibility: visible;
+}
+.work-details p {
+font-family:"poppins",sans-serif;
+
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+.project-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+    border-top: 1px solid rgba(104,40,96, 0.2);
+}
+.project-stats p { 
+    margin: 0; 
+
+    font-size: 0.85em; 
+}
+.project-stats a { 
+    color: #b57edc ; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+.project-stats a:hover { 
+    text-decoration: underline; 
+}
+
+/* Placeholder styling */
+.placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    transition: width 0.4s ease, height 0.4s ease; 
+}
+
+/* Responsive */
+/* ===========================
+   📱 MOBILE COMPACT VERSION
+=========================== */
+@media (max-width: 768px) {
+
+  /* ===== BODY ===== */
+  body {
+    background: #0C040E;
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* HEADER */
+  header {
+    width: 88%;
+    padding: 10px 18px;
+    border-radius: 12px;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* MENU PANEL */
+  header nav {
+    position: fixed;
+    top: 0%;
+    right: -100%;
+    width: 55%; 
+    height: 100vh; 
+    border-left: 2px solid #b19cd9; 
+    border-bottom-left-radius: 20px; 
+    background: #0C040E; 
+    backdrop-filter: blur(8px); 
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding-top: 100px; 
+    padding-left: 30px; 
+    gap: 1.8rem; 
+    transition: right 0.4s cubic-bezier(0.7, 0, 0.3, 1); 
+    z-index: 1000;
+  }
+
+  header nav.active {
+    right: 0;
+  }
+
+ header nav a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #b19cd9;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+
+  /* ===== SECTION TITLES ===== */
+  .section-title {
+    font-size: 2em;
+    margin-top: 70px;
+    letter-spacing: 1px;
+  }
+h4 {     font-size: 1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+  /* ===== SORT BAR ===== */
+  sort {
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(160, 90, 255, 0.2);
+    justify-content: flex-start;
+gap:10px;
+  }
+
+  sort .item {
+    font-size: 0.55rem;
+text-allignment: center;
+    padding: 10px 2px;
+  }
+
+  /* ===== GRID ===== */
+  .works-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .work-card {
+    border-radius: 8px;
+  margin: 15px 0; /* remove any extra margin */
+
+  }
+
+  .work-image {
+    height: 150px;
+  }
+
+  .work-title {
+    font-size: 1.3rem;
+  }
+
+  .work-description {
+    font-size: 0.95rem;
+  }
+
+  /* ===== ZOOMED STATE ===== */
+
+
+  .work-card.zoomed .work-media-zoom {
+    height: 220px;
+  }
+
+  .close-button {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  /* ===== DETAILS ===== */
+  .work-details {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  .project-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.95rem;
+
+    gap: 6px;
+  }
+
+  /* ===== LOADER ===== */
+  .loader-circle-87 {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+ /* Mobile-specific styles */
+@media (max-width: 768px) {
+  .work-card.zoomed .work-media-zoom {
+    height: 0;           /* reset fixed height */
+    padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    position: relative;  /* for absolute child positioning */
+  }
+
+  .work-card.zoomed .work-media-zoom video,
+  .work-card.zoomed .work-media-zoom img.zoomed-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+
+/* ===========================
+   DEFAULT (DESKTOP) NAV BUTTON STYLES
+   =========================== */
+.nav-button {
+    /* Desktop Size/Appearance */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #4b0082;
+    color: #ccccff;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+}
+
+/* Position for previous button */
+#prevButton {
+    left: 20px; /* Desktop distance from the left */
+}
+
+/* Position for next button */
+#nextButton {
+    right: 20px; /* Desktop distance from the right */
+}
+
+.nav-button:hover {
+    background: #5e1a96; /* Subtle hover effect */
+}
+
+
+/* ===========================
+   MOBILE NAV BUTTON STYLES (Max-width 768px)
+   =========================== */
+@media (max-width: 768px) {
+    .nav-button {
+        /* Reduce size for mobile tapping area */
+        width: 40px; 
+        height: 40px;
+        /* Smaller font size */
+        font-size: 1.2em;
+    }
+    
+    #prevButton {
+        left: 10px; /* Move closer to the edge on mobile */
+    }
+
+    #nextButton {
+        right: 10px; /* Move closer to the edge on mobile */
+    }
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+  body {
+    margin-top: 10%;
+  }
+  
+  /* Update grid layout for medium screens */
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  
+  /* ===== SORT BAR ===== */
+  sort {
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(160, 90, 255, 0.2);
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  sort .item {
+    font-size: 0.95rem;
+    /* Corrected typo from text-allignment to text-align */
+    text-align: center; 
+    padding: 10px 2px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+  body {
+    margin-top: 10%;
+  }
+  
+  /* Update grid layout for medium screens */
+  .works-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  
+  /* ===== SORT BAR ===== */
+  sort {
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(160, 90, 255, 0.2);
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  sort .item {
+    font-size: 0.95rem;
+    /* Corrected typo from text-allignment to text-align */
+    text-align: center; 
+    padding: 10px 2px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+
+<div id="page-loader">
+  <div class="loader-circle-87"></div>
+</div>
+
+  <header>
+  <div class="logo">Portfolio</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="works.html" class="active">WORKS</a>
+    <a href="certificate.html">CERTIFICATE</a>
+    <a href="resume.html">RESUME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+</header>
+        <h2 class="section-title">My Works</h2>
+
+<sort>
+  <div class="item active" data-target="designs">DESIGNS</div>
+  <div class="item" data-target="logo">LOGO</div>
+  <div class="item" data-target="videoedits">VIDEO EDITS</div>
+  <div class="item" data-target="websites">WEBSITES</div>
+  <div class="item" data-target="pdfdesigns">PDF DESIGNS</div>
+
+</sort>
+
+  <section id="designs" class="portfolio-section">
+<h4>DESIGNS</h4>
+        <div class="works-grid">
+            
+
+<div class="work-card" data-video-src="Works/Works/Designs/Sonali_poster2_1.jpg">
+    <img src="Works/Works/Designs/Sonali_poster2_1.jpg" alt="Sonali Poster 2" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Sonali Poster - Wire & Cable</h3>
+        <p class="work-description">An interview-focused design edit for a wire and cable company.</p>
+    </div>
+    <div class="work-details">
+        <p>A redesign and edit of a poster for a wire and cable company, created specifically to showcase design and editing skills during an interview process.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Design Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Sonali_Poster3.jpg">
+    <img src="Works/Works/Designs/Sonali_Poster3.jpg" alt="Sonali Poster 3" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Sonali Poster - Additional Design</h3>
+        <p class="work-description">A complementary design edit for the same wire and cable company project.</p>
+    </div>
+    <div class="work-details">
+        <p>An additional design piece developed for the wire and cable company project, further demonstrating versatility and attention to detail for the interview portfolio.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Design Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-login.jpg">
+    <img src="Works/Works/Designs/Innool-app-ui-login.jpg" alt="Innool App Login UI" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Innool App UI - Login Screen</h3>
+        <p class="work-description">Login interface design for Innool, an unfinished college project for study material.</p>
+    </div>
+    <div class="work-details">
+        <p>The login screen UI/UX design for Innool, a concept study material application from a college project, showcasing initial design concepts and flow.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> UI/UX Designer</p>
+            <p><strong>Year:</strong> 2022</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-home.jpg">
+    <img src="Works/Works/Designs/Innool-app-ui-home.jpg" alt="Innool App Home UI" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Innool App UI - Home Screen</h3>
+        <p class="work-description">Home screen design for the Innool study material app concept.</p>
+    </div>
+    <div class="work-details">
+        <p>The main dashboard (Home Screen) UI design for the Innool app, demonstrating user navigation and content organization for study materials.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> UI/UX Designer</p>
+            <p><strong>Year:</strong> 2022</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-page2.jpg">
+    <img src="Works/Works/Designs/Innool-app-ui-page2.jpg" alt="Innool App Page 2 UI" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Innool App UI - Secondary Page</h3>
+        <p class="work-description">A secondary content or feature page UI design for the Innool app.</p>
+    </div>
+    <div class="work-details">
+        <p>UI design for another screen within the Innool application, focusing on a specific feature or section of the study material content.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> UI/UX Designer</p>
+            <p><strong>Year:</strong> College Project</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/riz-vocab-welcome.jpg">
+    <img src="Works/Works/Designs/riz-vocab-welcome.jpg" alt="Riz Vocab Welcome" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Riz Vocab Bot Welcome</h3>
+        <p class="work-description">The welcome message design for a Telegram bot that sends automated vocabulary updates.</p>
+    </div>
+    <div class="work-details">
+                <p>The UI/UX design for the welcoming message of the Riz Vocab Telegram bot (a tool under the Ilam Kalvi concept), ensuring clarity and engagement for users receiving automated hourly vocabulary updates.</p>
+
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Zutriva Invoice.jpg">
+    <img src="Works/Works/Designs/Zutriva Invoice.jpg" alt="Zutriva Invoice" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Tourism Invoice</h3>
+        <p class="work-description">Invoice design for Zutriva, a freelance tourism startup.</p>
+    </div>
+    <div class="work-details">
+        <p>A clean, professional invoice template designed for Zutriva, a freelance tourism startup, ensuring clear billing information and brand consistency.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/zutriva-coastal-poster.jpg">
+    <img src="Works/Works/Designs/zutriva-coastal-poster.jpg" alt="Zutriva Coastal Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Coastal Trip Poster</h3>
+        <p class="work-description">Promotional poster design for a Zutriva coastal tourism package.</p>
+    </div>
+    <div class="work-details">
+        <p>One of a series of promotional posters for Zutriva, designed to market a specific coastal tour package with engaging visuals and clear travel information.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/zutriva-temple-poster.jpg">
+    <img src="Works/Works/Designs/zutriva-temple-poster.jpg" alt="Zutriva Temple Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Temple Tour Poster</h3>
+        <p class="work-description">Promotional poster design for a Zutriva temple tourism package.</p>
+    </div>
+    <div class="work-details">
+        <p>A visually rich poster created for Zutriva, advertising a dedicated tour package focused on cultural or historical temple destinations.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/zutriva-hills-poster.jpg">
+    <img src="Works/Works/Designs/zutriva-hills-poster.jpg" alt="Zutriva Hills Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Hills Trip Poster</h3>
+        <p class="work-description">Promotional poster design for a Zutriva hill station tourism package.</p>
+    </div>
+    <div class="work-details">
+        <p>Poster designed for Zutriva to promote travel packages to scenic hill station destinations, using appropriate thematic imagery and typography.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/zutriva-poster.jpg">
+    <img src="Works/Works/Designs/zutriva-poster.jpg" alt="Zutriva Kodaikanal Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Kodaikanal Departure Poster</h3>
+        <p class="work-description">A departure announcement poster for a tour to Kodaikanal.</p>
+    </div>
+    <div class="work-details">
+        <p>A specific promotional poster announcing a tour departure to Kodaikanal, part of the marketing efforts for the Zutriva tourism startup.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Arupadai Ad.jpg">
+    <img src="Works/Works/Designs/Arupadai Ad.jpg" alt="Arupadai Tour Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Arupadai Tour Advertisement</h3>
+        <p class="work-description">Poster design for a tour package visiting the Arupadai Veedu temples.</p>
+    </div>
+    <div class="work-details">
+        <p>An advertisement poster designed for a tour package covering the six sacred Arupadai Veedu temples, blending religious reverence with travel promotion.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/Zutriva-tkt.jpg">
+    <img src="Works/Works/Designs/Zutriva-tkt.jpg" alt="Zutriva Ticket" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Auto-Generated Ticket</h3>
+        <p class="work-description">Design for the auto-generated ticket provided to customers.</p>
+    </div>
+    <div class="work-details">
+        <p>The design template for the automated tickets provided to customers of Zutriva, ensuring a professional and informative final document for their travel plans.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/isdall-women-poster.jpg">
+    <img src="Works/Works/Designs/isdall-women-poster.jpg" alt="Isdall Women Poster 1" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women Poster (AI Film)</h3>
+        <p class="work-description">Poster design for an AI short film utilizing various AI tools in its production.</p>
+    </div>
+    <div class="work-details">
+        <p>The main promotional poster for 'Isdall Women,' a short film project that leveraged extensive AI tools for its creation, demonstrating design adaptability for AI-driven content.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Poster Designer</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/isdall-women-poster2.jpg">
+    <img src="Works/Works/Designs/isdall-women-poster2.jpg" alt="Isdall Women Poster 2" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women Poster (Alternate)</h3>
+        <p class="work-description">An alternate poster design for the same AI short film project.</p>
+    </div>
+    <div class="work-details">
+        <p>A secondary or alternate poster design created for the 'Isdall Women' AI short film, offering a different visual approach to the film's promotion.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Poster Designer</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/grand-open.jpg">
+    <img src="Works/Works/Designs/grand-open.jpg" alt="Grand Opening Invitation" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Grand Opening Invitation</h3>
+        <p class="work-description">A general invitation design for a grand opening event.</p>
+    </div>
+    <div class="work-details">
+        <p>A versatile grand opening invitation design, created as a general template without specific company branding, focusing on celebratory and inviting typography and layout.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Graphic Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/concept-cafe.jpg">
+    <img src="Works/Works/Designs/concept-cafe.jpg" alt="Concept Cafe Poster" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chill N Chicken Cafe Poster</h3>
+        <p class="work-description">Concept poster design for a cafe named 'Chill N Chicken'.</p>
+    </div>
+    <div class="work-details">
+        <p>A concept promotional poster for a fictional cafe called 'Chill N Chicken', designed to capture a casual, inviting, and appetite-stimulating aesthetic.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Designs/concept-recharge.jpg">
+    <img src="Works/Works/Designs/concept-recharge.jpg" alt="Concept Recharge UI" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Concept Recharge App UI</h3>
+        <p class="work-description">Conceptual UI screen design for a mobile recharge application.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual user interface design for a mobile recharge application, focusing on a clean, intuitive layout for selecting carriers, plans, and completing transactions.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> UI/UX Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>    </section>
+<sort>
+  <div class="item" data-target="designs">DESIGNS</div>
+  <div class="item active" data-target="logo">LOGO</div>
+  <div class="item" data-target="videoedits">VIDEO EDITS</div>
+  <div class="item" data-target="websites">WEBSITES</div>
+  <div class="item" data-target="pdfdesigns">PDF DESIGNS</div>
+
+</sort>
+
+ <section id="logo" class="portfolio-section">
+
+<h4>LOGO</h4>
+
+         <div class="works-grid">
+            
+
+<div class="work-card" data-video-src="Works/Works/Logo/Zutriva-offical-logo.jpg">
+    <img src="Works/Works/Logo/Zutriva-offical-logo.jpg" alt="Zutriva Official Logo" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Official Logo</h3>
+        <p class="work-description">The final, official brand mark for the Zutriva tourism startup.</p>
+    </div>
+    <div class="work-details">
+        <p>The definitive logo design adopted by Zutriva, a freelance tourism startup. This mark focuses on professional, travel-themed iconography and typography.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Logo Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/zutriva-official-full-logo.jpg">
+    <img src="Works/Works/Logo/zutriva-official-full-logo.jpg" alt="Zutriva Official Full Logo" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Official Full Logo</h3>
+        <p class="work-description">The official horizontal or full version of the Zutriva brand identity.</p>
+    </div>
+    <div class="work-details">
+        <p>The comprehensive logo design for Zutriva, incorporating the main mark and full brand name, intended for use in headers, banners, and detailed branding applications.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Logo Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/zutriva-concept-logo.jpg">
+    <img src="Works/Works/Logo/zutriva-concept-logo.jpg" alt="Zutriva Concept Logo 1" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Full Concept Logo</h3>
+        <p class="work-description">An alternative conceptual design exploring different typography and icon styles for Zutriva.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual version 1 of the Zutriva logo, exploring alternative color palettes and symbol placements before final selection. This served as a key iteration in the design process.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Logo Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/zutriva-concept-logo1.jpg">
+    <img src="Works/Works/Logo/zutriva-concept-logo1.jpg" alt="Zutriva Concept Logo 2" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Concept Logo</h3>
+        <p class="work-description">A conceptual logo design for Zutriva, focusing on a distinct travel-themed visual mark.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual version 2 of the Zutriva logo. This design tested a different approach to symbolizing travel and adventure for the tourism brand.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Logo Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/chillnchicken-concept-logo.jpg">
+    <img src="Works/Works/Logo/chillnchicken-concept-logo.jpg" alt="Chill n Chicken Concept Logo 1" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chill N Chicken Concept 1</h3>
+        <p class="work-description">Initial concept logo exploring an identity for the 'Chill N Chicken' cafe.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual logo iteration 1 for the 'Chill N Chicken' cafe. This design focuses on a bold, clean style suitable for a food and beverage brand.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/chillnchicken2-concept-logo.jpg">
+    <img src="Works/Works/Logo/chillnchicken2-concept-logo.jpg" alt="Chill n Chicken Concept Logo 2" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chill N Chicken Concept 2</h3>
+        <p class="work-description">Second concept logo, introducing alternate color or stylistic elements.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual logo iteration 2 for the 'Chill N Chicken' cafe, testing alternative graphic elements and a different approach to the cafe's aesthetic.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/chillnchicken3-concept-logo.jpg">
+    <img src="Works/Works/Logo/chillnchicken3-concept-logo.jpg" alt="Chill n Chicken Concept Logo 3" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chill N Chicken Concept 3</h3>
+        <p class="work-description">Third concept logo, further refining the cafe's brand identity.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual logo iteration 3 for the 'Chill N Chicken' cafe. This design explored different typography combinations and layout options for the name.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/chillnchicken4-concept-logo.jpg">
+    <img src="Works/Works/Logo/chillnchicken4-concept-logo.jpg" alt="Chill n Chicken Concept Logo 4" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chill N Chicken Concept 4</h3>
+        <p class="work-description">Final concept logo in the series, presenting a potential final direction.</p>
+    </div>
+    <div class="work-details">
+        <p>Conceptual logo iteration 4 for the 'Chill N Chicken' cafe, representing a more polished version of the brand's identity and visual mark.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/Ilam-kalvi.jpg">
+    <img src="Works/Works/Logo/Ilam-kalvi.jpg" alt="Ilam Kalvi Logo" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Ilam Kalvi Startup Logo</h3>
+        <p class="work-description">Conceptual logo for 'Ilam Kalvi,' a startup focused on competitive exam preparation.</p>
+    </div>
+    <div class="work-details">
+        <p>The logo design for 'Ilam Kalvi,' a concept startup aiming to provide resources for competitive exams like banking, designed to convey knowledge, growth, and trust.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/riz-vocab-dp.jpg">
+    <img src="Works/Works/Logo/riz-vocab-dp.jpg" alt="Riz Vocab Logo" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Riz Vocab Telegram Bot Logo</h3>
+        <p class="work-description">Logo/Display Picture (DP) designed for the Riz Vocab automated vocabulary bot.</p>
+    </div>
+    <div class="work-details">
+              <p>A clear, compact logo for the Riz Vocab Telegram bot, designed for small-size recognition. This automated learning tool is a feature of the Ilam Kalvi competitive exam concept.</p>
+
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+<div class="work-card" data-video-src="Works/Works/Logo/concept-logo.jpg">
+    <img src="Works/Works/Logo/concept-logo.jpg" alt="Unnamed Concept Logo" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Unnamed Simple Concept Logo</h3>
+        <p class="work-description">A clean, simple concept logo design focusing on geometric shape and minimal form.</p>
+    </div>
+    <div class="work-details">
+        <p>A versatile and abstract concept logo, utilizing simple shapes and composition to create a modern and memorable (though currently unnamed) brand mark.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Concept Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>        </div>
+    </section>
+<sort>
+  <div class="item" data-target="designs">DESIGNS</div>
+  <div class="item" data-target="logo">LOGO</div>
+  <div class="item active" data-target="videoedits">VIDEO EDITS</div>
+  <div class="item" data-target="websites">WEBSITES</div>
+  <div class="item" data-target="pdfdesigns">PDF DESIGNS</div>
+
+</sort>
+
+<section id="videoedits" class="portfolio-section">
+<h4>VIDEO EDITS</h4>
+        <div class="works-grid">
+            
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-1.mp4">
+                <img src="Works/Works/Thumbnail/Sonali-1.jpg" alt="Project 1" class="work-image">
+                <div class="work-media-zoom"></div> <div class="work-overlay">
+                    <h3 class="work-title">Sonali Wires</h3>
+                    <p class="work-description">Sonali Wires And Cables brand representation video.</p>
+                </div>
+                <div class="work-details">
+                    <p>This was a demonstration video edit, specifically crafted for an interview, allowing me to showcase my technical skills in storytelling and sequencing. It was instrumental in illustrating my direct applicability to the role's requirements.</p>
+                    <div class="project-stats">
+                        <p><strong>Role:</strong> Video Editor</p>
+                        <p><strong>Year:</strong> 2025</p>
+                        
+                    </div>
+                </div>
+                <button class="close-button" onclick="closePreview(event, 0)">×</button> 
+            </div>
+            
+            <div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-2.mp4">
+    <img src="Works/Works/Thumbnail/Sonali-2.jpg" alt="Project 2" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Sonali Wires 2</h3>
+        <p class="work-description">A follow-up brand representation video for Sonali Wires and Cables.</p>
+    </div>
+    <div class="work-details">
+        <p>This was a demonstration video edit, specifically crafted for an interview, allowing me to showcase my technical skills in storytelling and sequencing. It was instrumental in illustrating my direct applicability to the role's requirements.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva1.mp4">
+    <img src="Works/Works/Thumbnail/Zutriva1.jpg" alt="Project 3" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Tourism</h3>
+        <p class="work-description">Engaging tourism promotional video edit for the startup company Zutriva.</p>
+    </div>
+    <div class="work-details">
+        <p>This was a freelance video edit for Zutriva, a startup tourism company. The project's goal was to create a compelling edit that promotes tourism and showcases their travel offerings to potential customers.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva2.mp4">
+    <img src="Works/Works/Thumbnail/Zutriva2.jpg" alt="Project 4" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Adventure</h3>
+        <p class="work-description">A second promotional video edit for Zutriva, focusing on adventurous travel experiences.</p>
+    </div>
+    <div class="work-details">
+        <p>This was another freelance video edit for Zutriva, a startup tourism company. The project's goal was to create a compelling edit that promotes tourism and showcases their travel offerings to potential customers.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva-poster.mp4">
+    <img src="Works/Works/Thumbnail/Zutriva-poster.jpg" alt="Project 5" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Poster Animation</h3>
+        <p class="work-description">Animated poster edit for Zutriva, bringing a static design to life.</p>
+    </div>
+    <div class="work-details">
+        <p>A motion graphic project for Zutriva to create a dynamic animated poster. This project demonstrated skills in taking a static image and using motion to enhance its visual impact for digital promotion.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Motion Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women-poster.mp4">
+    <img src="Works/Works/Thumbnail/Isdall-women-poster.jpg" alt="Project 6" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women - Poster Motion</h3>
+        <p class="work-description">A dynamic motion poster for the 'Isdall Women' AI film.</p>
+    </div>
+    <div class="work-details">
+        <p>A motion graphic poster created to promote the AI short film 'Isdall Women.' This work demonstrates skills in animating static assets to generate attention-grabbing promotional content.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Motion Designer</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women1.mp4">
+    <img src="Works/Works/Thumbnail/Isdall-women1.jpg" alt="Project 7" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women - Teaser</h3>
+        <p class="work-description">Short film teaser for 'Isdall Women,' the first AI-driven South Indian film.</p>
+    </div>
+    <div class="work-details">
+        <p>This project was part of a groundbreaking AI short film. It involved using several software and AI tools including **Photoshop, Canva, CapCut, After Effects, Runway, ElevenLabs, ChatGPT, and MetaAI**, showcasing versatility in new-age filmmaking techniques.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> AI Filmmaker/Editor</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women2.mp4">
+    <img src="Works/Works/Thumbnail/Isdall-women2.jpg" alt="Project 8" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women - Scene 1</h3>
+        <p class="work-description">A specific scene edit from the AI short film, 'Isdall Women.'</p>
+    </div>
+    <div class="work-details">
+        <p>Part of the 'Isdall Women' AI film, this segment required detailed editing using tools like Photoshop, Canva, CapCut, AE, and various AI tools. It highlights scene-specific color grading and sequencing skills.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> AI Filmmaker/Editor</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women3.mp4">
+    <img src="Works/Works/Thumbnail/Isdall-women3.jpg" alt="Project 9" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women - Scene 2</h3>
+        <p class="work-description">A second specific scene edit from the AI short film, 'Isdall Women.'</p>
+    </div>
+    <div class="work-details">
+        <p>Part of the 'Isdall Women' AI film, this segment required detailed editing using tools like Photoshop, Canva, CapCut, AE, and various AI tools. It highlights scene-specific color grading and sequencing skills.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> AI Filmmaker/Editor</p>
+            <p><strong>Year:</strong> 2024</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women-film.mp4">
+    <img src="Works/Works/Thumbnail/Isdall-women-film.jpg" alt="Project 10" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Isdall Women - Full Film</h3>
+        <p class="work-description">The complete edit of 'Isdall Women,' an AI-generated short film.</p>
+    </div>
+    <div class="work-details">
+        <p>The full short film project, demonstrating comprehensive skills in AI-assisted filmmaking from conceptualization to final output, including the use of numerous modern AI tools and editing suites.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> AI Filmmaker/Editor</p>
+            <p><strong>Year:</strong> 2024</p>
+<p><strong>YouTube:</strong> <a href="https://youtu.be/u4Bvu3pAMIE?si=aZcQ2SFmPxJRGioy" target="_blank">TheRiz Filma</a></p>
+
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Corona-Heros.mp4">
+    <img src="Works/Works/Thumbnail/Corona-Heros.jpg" alt="Project 11" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Corona Heroes Tribute</h3>
+        <p class="work-description">A mashup and tribute edit dedicated to the frontline heroes of the COVID-19 pandemic.</p>
+    </div>
+    <div class="work-details">
+        <p>A heartfelt mashup edit created as a tribute to the doctors, nurses, and essential workers during the challenging corona time. This project showcases skill in compiling diverse footage into a coherent, emotional narrative.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Mysore-zoo.mp4">
+    <img src="Works/Works/Thumbnail/Mysore-zoo.jpg" alt="Project 12" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Mysore Zoo Montage</h3>
+        <p class="work-description">A travel and nature edit capturing the variety of animals and sights at Mysore Zoo.</p>
+    </div>
+    <div class="work-details">
+        <p>A personal travel edit from a visit to Mysore Zoo. This project demonstrates skills in sequencing nature footage, utilizing cinematic cuts, and sound design for an immersive experience.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2023</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Editors-day.mp4">
+    <img src="Works/Works/Thumbnail/Editors-day.jpg" alt="Project 13" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Tribute to Editors</h3>
+        <p class="work-description">A special tribute video celebrating the craft and contribution of professional film editors.</p>
+    </div>
+    <div class="work-details">
+        <p>An appreciative tribute edit created to honor the vital role of editors in filmmaking. It showcases an understanding of the impact of cuts, transitions, and pacing in professional editing.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Sridivya.mp4">
+    <img src="Works/Works/Thumbnail/Sridivya.jpg" alt="Project 14" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Sridivya Showcase</h3>
+        <p class="work-description">A fan edit showcasing the actress Sridivya, focusing on her lovable and cute moments.</p>
+    </div>
+    <div class="work-details">
+        <p>A creative fan edit of actress Sridivya, focused on capturing and enhancing her on-screen charm. The edit demonstrates skills in lyrical video synchronization and showcasing emotion through visual pacing.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/thamizhan.mp4">
+    <img src="Works/Works/Thumbnail/thamizhan.jpg" alt="Project 15" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Proud Thamizhan</h3>
+        <p class="work-description">An edit expressing pride and showcasing the rich culture of the Tamil people.</p>
+    </div>
+    <div class="work-details">
+        <p>A cultural appreciation edit, celebrating the heritage and pride of the Tamil identity. This project involved sourcing and sequencing culturally relevant visuals with impactful audio to evoke a strong sense of pride.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/HBD-to-me.mp4">
+    <img src="Works/Works/Thumbnail/HBD-to-me.jpg" alt="Project 16" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">My Birthday Fun Edit</h3>
+        <p class="work-description">A creative, fun-filled personal edit celebrating a birthday.</p>
+    </div>
+    <div class="work-details">
+        <p>A personal, light-hearted project demonstrating skills in creating energetic and fun edits using quick cuts, pop-culture references, and lively music synchronization.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/HBD-chiyaan.mp4">
+    <img src="Works/Works/Thumbnail/HBD-chiyaan.jpg" alt="Project 17" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chiyaan Vikram Birthday</h3>
+        <p class="work-description">A tribute and celebration edit for the popular South Indian actor, Chiyaan Vikram.</p>
+    </div>
+    <div class="work-details">
+        <p>A high-impact fan edit dedicated to the actor Chiyaan Vikram. This work showcases skills in creating dynamic, cinematic sequences and using sound design to enhance dramatic scenes.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2020</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Thupakki-title.mp4">
+    <img src="Works/Works/Thumbnail/Thupakki-title.jpg" alt="Project 18" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Thupakki Title Recreation</h3>
+        <p class="work-description">Recreation of the iconic 'Thupakki' movie title card, personalized with my name.</p>
+    </div>
+    <div class="work-details">
+        <p>A technical exercise in motion graphics, recreating the complex and dynamic title card from the movie 'Thupakki.' This demonstrates precision in design replication and animation software proficiency.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Motion Designer</p>
+            <p><strong>Year:</strong> 2018</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<div class="work-card" data-video-src="Works/Works/Video Edits/Singam-title.mp4">
+    <img src="Works/Works/Thumbnail/Singam-title.jpg" alt="Project 19" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Singam Title Recreation</h3>
+        <p class="work-description">Recreation of the 'Singam' movie title card, personalized with my name.</p>
+    </div>
+    <div class="work-details">
+        <p>A motion graphic project focused on replicating the distinct style and energy of the 'Singam' movie title card. This project showcases technical skill in typeface animation and visual effects.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Motion Designer</p>
+            <p><strong>Year:</strong> 2018</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+    </section>
+  <sort>
+  <div class="item" data-target="designs">DESIGNS</div>
+  <div class="item" data-target="logo">LOGO</div>
+  <div class="item" data-target="videoedits">VIDEO EDITS</div>
+  <div class="item active" data-target="websites">WEBSITES</div>
+  <div class="item" data-target="pdfdesigns">PDF DESIGNS</div>
+
+</sort>
+
+<section id="websites" class="portfolio-section">
+<h4>WEBSITES</h4>
+
+         <div class="works-grid">
+            
+
+<!-- 1. Portfolio Website of Mine -->
+<div class="work-card" data-video-src="Works/Works/Websites/harishkumar-portfolio.mp4">
+    <img src="Works/Works/Websites/harishkumar-portfolio.jpg" alt="Portfolio Website" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Portfolio Website</h3>
+        <p class="work-description">My personal portfolio showcasing projects and skills.</p>
+    </div>
+    <div class="work-details">
+        <p>A responsive portfolio website highlighting my projects, achievements, and experiences.  
+        Designed with modern UI and mobile-friendly layouts.  
+        Provides easy navigation and clear presentation of my work.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer & Developer</p>
+            <p><strong>Year:</strong> 2025</p>
+            <p><strong>Link:</strong> <a href="#" target="_blank">Portfolio</a></p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 2. Zutriva Advance Booking Form Website -->
+<div class="work-card" data-video-src="Works/Works/Websites/Zutriva-advance-booking.mp4">
+    <img src="Works/Works/Websites/Zutriva-advance-booking.jpg" alt="Zutriva Advance Booking Form" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Advance Booking</h3>
+        <p class="work-description">Online booking system for Zutriva services.</p>
+    </div>
+    <div class="work-details">
+        <p>Web application for advance booking and reservations.  
+        Simplifies scheduling and manages client requests efficiently.  
+        Built with user-friendly forms and real-time validation.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Frontend & Backend Developer</p>
+            <p><strong>Year:</strong> 2025</p>
+            <p><strong>Link:</strong> <a href="https://zutriva.github.io/Advance-Booking/" target="_blank">Advance Booking</a></p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 3. Zutriva Balance Payment Form Website -->
+<div class="work-card" data-video-src="Works/Works/Websites/Zutriva-balance-payment.mp4">
+    <img src="Works/Works/Websites/Zutriva-balance-payment.jpg" alt="Zutriva Balance Payment Form" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Zutriva Balance Payment</h3>
+        <p class="work-description">Form for processing client balance payments.</p>
+    </div>
+    <div class="work-details">
+        <p>Web form for submitting balance payments securely.  
+        Tracks transaction details and maintains client history.  
+        Built for speed, reliability, and ease of use.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Frontend Developer</p>
+            <p><strong>Year:</strong> 2025</p>
+            <p><strong>Link:</strong> <a href="https://zutriva.github.io/Balance-payment/" target="_blank">Balance Payment</a></p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 4. Zutriva Automated Invoice Generator -->
+<div class="work-card" data-video-src="Works/Works/Websites/Automated-invoice-generator.mp4">
+    <img src="Works/Works/Websites/Automated-invoice-generator.jpg" alt="Automated Invoice Generator" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Automated Invoice Generator</h3>
+        <p class="work-description">Generates invoices automatically for businesses.</p>
+    </div>
+    <div class="work-details">
+        <p>Automates invoice creation to save time and reduce errors.  
+        Supports multiple formats and client management.  
+        Ideal for small businesses and freelancers.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Developer</p>
+            <p><strong>Year:</strong> 2025</p>
+            
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 5. Ilam Kalvi Startup Website -->
+<div class="work-card" data-video-src="Works/Works/Websites/ilamkalvi.mp4">
+    <img src="Works/Works/Websites/ilamkalvi.jpg" alt="Ilam Kalvi Startup Website" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Ilam Kalvi Startup</h3>
+        <p class="work-description">Website for competitive exam and banking aspirants.</p>
+    </div>
+    <div class="work-details">
+        <p>Structured learning platform for students preparing for exams. Offers practice tests, study materials, and guidance. Designed for clarity, speed, and easy access to resources.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Full Stack Developer</p>
+            <p><strong>Year:</strong> 2025</p>
+            <p><strong>Link:</strong> <a href="https://theriz-18.github.io/Ilam-Kalvi" target="_blank">Ilam Kalvi</a></p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+        </div>
+    </section>
+<sort>
+  <div class="item" data-target="designs">DESIGNS</div>
+  <div class="item" data-target="logo">LOGO</div>
+  <div class="item" data-target="videoedits">VIDEO EDITS</div>
+  <div class="item" data-target="websites">WEBSITES</div>
+  <div class="item active" data-target="pdfdesigns">PDF DESIGNS</div>
+
+</sort>
+
+<section id="pdfdesigns" class="portfolio-section">
+<h4>PDF DESIGNS</h4>
+
+         <div class="works-grid">
+            
+
+<!-- 1. Arupadai FAQ -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/arupadai-faq.mp4">
+    <img src="Works/Works/PDF_design/arupadai-faq.jpg" alt="Arupadai FAQ" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Arupadai Murugan FAQ</h3>
+        <p class="work-description">FAQ document for Arupadai Murugan Temple tour.</p>
+    </div>
+    <div class="work-details">
+        <p>Detailed answers to common questions about Arupadai Murugan temple tours.  
+        Provides travelers with essential guidelines and tips.  
+        Helps pilgrims plan their visit efficiently.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 2. MDU 5D & 4N Tour -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-ARUPADAI (5D&4N) tour.mp4">
+    <img src="Works/Works/PDF_design/MDU-ARUPADAI (5D&4N) tour.jpg" alt="MDU ARUPADAI Tour" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">MDU Arupadai 5D & 4N Tour</h3>
+        <p class="work-description">Complete itinerary for the 5-day Arupadai tour from Madurai.</p>
+    </div>
+    <div class="work-details">
+        <p>Includes daily schedule, temple visits, and accommodation details.  
+        Highlights key cultural and spiritual sites along the route.  
+        Designed to guide travelers smoothly throughout the tour.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Planner & Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 3. MDU CCP FAQ -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-CCP-faq.mp4">
+    <img src="Works/Works/PDF_design/MDU-CCP-faq.jpg" alt="MDU CCP FAQ" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chidambaram CCP FAQ</h3>
+        <p class="work-description">FAQ for Chidambaram temple tour (CCP itinerary).</p>
+    </div>
+    <div class="work-details">
+        <p>Answers common traveler questions about the CCP temple tour.  
+        Includes guidance on timings, rituals, and local information.  
+        A quick reference for first-time visitors to Chidambaram.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 4. MDU CDM 2D & 1N Tour -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-CDM (2D&1N)-tour.mp4">
+    <img src="Works/Works/PDF_design/MDU-CDM (2D&1N)-tour.jpg" alt="MDU CDM Tour" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Chidambaram CDM 2D & 1N Tour</h3>
+        <p class="work-description">Short tour itinerary for Chidambaram temple visit.</p>
+    </div>
+    <div class="work-details">
+        <p>Compact 2-day plan with temple visits and travel details.  
+        Covers the essential landmarks and cultural spots.  
+        Ideal for travelers with limited time in Chidambaram.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Planner & Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 5. MDU UAM 2D & 1N Tour -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-UAM (2D&1N)tour.mp4">
+    <img src="Works/Works/PDF_design/MDU-UAM (2D&1N)tour.jpg" alt="MDU UAM Tour" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Ooty UAM 2D & 1N Tour</h3>
+        <p class="work-description">2-day itinerary for UAM tour from Madurai.</p>
+    </div>
+    <div class="work-details">
+        <p>Highlights scenic spots and local attractions in Ooty.  
+        Includes hotel and travel arrangements for convenience.  
+        Designed for a quick, hassle-free getaway from Madurai.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Planner & Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 6. MDU UAM FAQ -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-UAM-faq.mp4">
+    <img src="Works/Works/PDF_design/MDU-UAM-faq.jpg" alt="MDU UAM FAQ" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Ooty UAM FAQ</h3>
+        <p class="work-description">FAQ document for Ooty UAM tour travelers.</p>
+    </div>
+    <div class="work-details">
+        <p>Provides answers to common questions about the Ooty tour.  
+        Covers transportation, hotel, and sightseeing tips.  
+        Ensures smooth planning for visitors on a tight schedule.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 7. MDU VKN 2D & 1N Tour -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-VKN(2D&1N)tour.mp4">
+    <img src="Works/Works/PDF_design/MDU-VKN(2D&1N)tour.jpg" alt="MDU VKN Tour" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Velankanni VKN 2D & 1N Tour</h3>
+        <p class="work-description">2-day itinerary for Velankanni tour from Madurai.</p>
+    </div>
+    <div class="work-details">
+        <p>Detailed schedule with temple visits and local sightseeing.  
+        Helps travelers plan a short yet complete pilgrimage.  
+        Includes practical tips for a hassle-free experience.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Planner & Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+<!-- 8. MDU VKN FAQ -->
+<div class="work-card" data-video-src="Works/Works/PDF_design/MDU-VKN-faq.mp4">
+    <img src="Works/Works/PDF_design/MDU-VKN-faq.jpg" alt="MDU VKN FAQ" class="work-image">
+    <div class="work-media-zoom"></div>
+    <div class="work-overlay">
+        <h3 class="work-title">Velankanni VKN FAQ</h3>
+        <p class="work-description">FAQ for Velankanni 2-day tour travelers.</p>
+    </div>
+    <div class="work-details">
+        <p>Answers common questions regarding Velankanni travel.  
+        Provides guidance on transportation, food, and rituals.  
+        Ensures smooth and stress-free pilgrimage planning.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+            
+       
+        </div>
+    </section>
+
+  
+<script>
+
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+      // Add fade-out class
+      loader.classList.add('fade-out');
+
+      // Wait for fade animation to finish, then remove from DOM
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 600); // match your CSS transition duration (0.6s)
+    }
+  });
+
+
+const tabs = document.querySelectorAll("sort .item");
+const sections = document.querySelectorAll(".portfolio-section");
+const sortBar = document.querySelector("sort");
+const headerOffset = 80; // height of your fixed header or extra space
+
+// Click to scroll
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const id = tab.dataset.target;
+    const target = document.getElementById(id);
+    if (target) {
+      const y = target.offsetTop - sortBar.offsetHeight - headerOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  });
+});
+
+// Scrollspy: highlight active tab when 50% of section is visible
+window.addEventListener("scroll", () => {
+  const scrollMiddle = window.scrollY + window.innerHeight / 2; // middle of viewport
+  let current = null;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    if (scrollMiddle >= sectionTop && scrollMiddle < sectionBottom) {
+      current = section.id;
+    }
+  });
+
+  if (current) {
+    tabs.forEach(tab => {
+      tab.classList.remove("active");
+      if (tab.dataset.target === current) tab.classList.add("active");
+    });
+  }
+});
+
+// 🔑 CONSTANTS
+    const SLIDE_DURATION_MS = 400; 
+    const SLIDE_DURATION_S = (SLIDE_DURATION_MS / 1000) + 's'; 
+
+    // Define the keyframes for slide animations dynamically
+    const styleSheet = document.createElement('style');
+    styleSheet.innerHTML = `
+        @keyframes slideOutLeft {
+            from { transform: translate(-50%, -50%); opacity: 1; }
+            to { transform: translate(-150%, -50%); opacity: 0; }
+        }
+        @keyframes slideInRight {
+            from { transform: translate(50%, -50%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+            from { transform: translate(-50%, -50%); opacity: 1; }
+            to { transform: translate(150%, -50%); opacity: 0; }
+        }
+        @keyframes slideInLeft {
+            from { transform: translate(-150%, -50%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(styleSheet);
+
+
+    let activeCard = null;
+    let cards = [];
+    let placeholder = null;
+    let overlay = null;
+    let navButtons = {}; 
+
+    // Utility Functions
+    function getCardRect(card) {
+        if (activeCard && placeholder && placeholder.parentNode && card === activeCard) {
+             return placeholder.getBoundingClientRect();
+        }
+        return card.getBoundingClientRect();
+    }
+
+    function createOverlay() {
+        if (overlay) return;
+        overlay = document.createElement("div");
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 900;
+            cursor: pointer;
+        `;
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', () => closePreview(null, 0)); 
+        setTimeout(() => overlay.style.opacity = "1", 20);
+        createNavigationButtons();
+    }
+
+    function removeOverlay() {
+        if (overlay) {
+            overlay.style.opacity = "0";
+            overlay.addEventListener("transitionend", () => {
+                overlay.remove();
+                overlay = null;
+            }, { once: true });
+        }
+        removeNavigationButtons();
+    }
+
+function loadAndPlayMedia(card, mediaSrc) {
+    const mediaContainer = card.querySelector('.work-media-zoom');
+    mediaContainer.innerHTML = ''; // Clear previous content
+
+    // Create media controls container for both videos and images
+    const controls = document.createElement('div');
+    controls.classList.add('media-controls');
+
+    if (mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm')) {
+        const video = document.createElement('video');
+        video.src = mediaSrc;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.classList.add('zoomed-content');
+        mediaContainer.appendChild(video);
+
+        // Mute/Unmute button (only for videos)
+        const muteButton = document.createElement('button');
+        muteButton.classList.add('media-button');
+        muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        muteButton.title = 'Unmute';
+        muteButton.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteButton.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+            muteButton.title = video.muted ? 'Unmute' : 'Mute';
+        });
+        controls.appendChild(muteButton);
+
+        // Fullscreen button
+        const fullscreenButton = document.createElement('button');
+        fullscreenButton.classList.add('media-button');
+        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+        fullscreenButton.title = 'View Fullscreen';
+        fullscreenButton.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        });
+        controls.appendChild(fullscreenButton);
+
+        mediaContainer.appendChild(controls);
+
+        // Toggle play/pause on video click/touch
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play().catch(e => console.log("Video playback blocked:", e));
+            } else {
+                video.pause();
+            }
+        });
+
+        // Ensure video starts playing when fully visible
+        setTimeout(() => {
+            video.play().catch(e => {
+                console.log("Video playback blocked:", e);
+                mediaContainer.innerHTML = '';
+                const fallback = document.createElement('div');
+                fallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
+                fallback.textContent = 'Failed to load video. Please check the file or permissions.';
+                mediaContainer.appendChild(fallback);
+            });
+        }, SLIDE_DURATION_MS + 50);
+
+        // Update button states on fullscreen change
+        video.addEventListener('fullscreenchange', () => {
+            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+        });
+    } else if (mediaSrc.endsWith('.gif') || mediaSrc.endsWith('.jpg')) {
+        const img = document.createElement('img');
+        img.src = mediaSrc;
+        img.classList.add('zoomed-content');
+        mediaContainer.appendChild(img);
+
+        // Fullscreen button (for images)
+        const fullscreenButton = document.createElement('button');
+        fullscreenButton.classList.add('media-button');
+        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+        fullscreenButton.title = 'View Fullscreen';
+        fullscreenButton.addEventListener('click', () => {
+            if (img.requestFullscreen) {
+                img.requestFullscreen();
+            } else if (img.webkitRequestFullscreen) {
+                img.webkitRequestFullscreen();
+            } else if (img.msRequestFullscreen) {
+                img.msRequestFullscreen();
+            }
+        });
+        controls.appendChild(fullscreenButton);
+
+        mediaContainer.appendChild(controls);
+
+        // Update button states on fullscreen change
+        img.addEventListener('fullscreenchange', () => {
+            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+        });
+    }
+}
+    function stopAndRemoveMedia(card) {
+        const mediaContainer = card.querySelector('.work-media-zoom');
+        const video = mediaContainer.querySelector('video');
+        if (video) {
+            video.pause();
+            // Optionally remove src to free up memory immediately
+            video.removeAttribute('src'); 
+        }
+        mediaContainer.innerHTML = ''; // Clear the container
+    }
+    // --- END MEDIA HANDLER FUNCTIONS ---
+
+
+    function updatePlaceholder(currentCard, nextCard = null) {
+        if (nextCard) {
+            // --- Navigation: Move Placeholder ---
+            const targetRect = nextCard.getBoundingClientRect();
+            
+            if (!placeholder) {
+                 placeholder = document.createElement("div");
+                 placeholder.classList.add("placeholder");
+                 const currentRect = currentCard.getBoundingClientRect();
+                 placeholder.style.width = currentRect.width + "px";
+                 placeholder.style.height = currentRect.height + "px";
+                 currentCard.parentNode.insertBefore(placeholder, currentCard);
+            }
+            
+            placeholder.style.visibility = 'visible'; 
+            
+            placeholder.style.width = targetRect.width + "px";
+            placeholder.style.height = targetRect.height + "px";
+
+            if (nextCard.parentNode) {
+                nextCard.parentNode.insertBefore(placeholder, nextCard);
+            }
+            
+        } else if (currentCard) {
+            // --- Initial Zoom In: Create Placeholder ---
+            if (placeholder) placeholder.remove();
+
+            const computedStyle = window.getComputedStyle(currentCard);
+            const rect = currentCard.getBoundingClientRect();
+
+            placeholder = document.createElement("div");
+            placeholder.classList.add("placeholder");
+
+            placeholder.style.width = rect.width + "px"; 
+            placeholder.style.height = rect.height + "px";
+            
+            placeholder.style.marginTop = computedStyle.marginTop;
+            placeholder.style.marginBottom = computedStyle.marginBottom;
+            placeholder.style.marginLeft = computedStyle.marginLeft;
+            placeholder.style.marginRight = computedStyle.marginRight;
+            
+            if (currentCard.parentNode) {
+                currentCard.parentNode.insertBefore(placeholder, currentCard);
+            }
+        }
+    }
+
+
+    function finalCleanup(card) {
+        // Essential: Remove all temporary styles
+        card.style.pointerEvents = "auto";
+        card.style.position = "";
+        card.style.transition = "";
+        card.style.animation = "";
+        card.style.zIndex = "";
+        card.style.opacity = "";
+        
+        // Ensure all dimensional overrides are removed
+        card.style.width = "";
+        card.style.height = "";
+        card.style.minHeight = "";
+        card.style.maxWidth = ""; 
+
+        card.style.top = "";
+        card.style.left = "";
+        card.style.transform = "";
+        card.classList.remove("zoomed");
+
+        // Only restore the card to its original place if it's a Zoom Out (activeCard is null)
+        if (activeCard === null && placeholder && placeholder.parentNode) {
+            placeholder.replaceWith(card);
+            placeholder = null;
+        }
+
+        // Ensure all cards are visible and interactive again
+        document.querySelectorAll('.work-card').forEach(c => {
+            c.style.display = "block";
+            c.style.pointerEvents = "auto";
+        });
+    }
+
+    // Navigation buttons (Unchanged)
+  function createNavigationButtons() {
+    const createButton = (id, symbol, handler) => {
+        const btn = document.createElement('button');
+        btn.id = id;
+        btn.innerHTML = symbol;
+        
+        // Add a class for CSS styling
+        btn.classList.add('nav-button'); 
+        
+        // Keep essential fixed positioning inline
+        btn.style.cssText = `
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1100;
+            opacity: 0; 
+            transition: opacity 0.3s, background 0.3s;
+        `;
+        
+        btn.addEventListener('click', handler);
+        document.body.appendChild(btn);
+        return btn;
+    };
+
+
+        navButtons.left = createButton('nav-left', '&#10094;', (e) => { e.stopPropagation(); navigate(-1); });
+        navButtons.left.style.left = '20px';
+
+        navButtons.right = createButton('nav-right', '&#10095;', (e) => { e.stopPropagation(); navigate(1); });
+        navButtons.right.style.right = '20px';
+
+        setTimeout(() => {
+            if (navButtons.left) navButtons.left.style.opacity = '1';
+            if (navButtons.right) navButtons.right.style.opacity = '1';
+        }, SLIDE_DURATION_MS + 50); 
+    }
+
+    function removeNavigationButtons() {
+        if (navButtons.left) {
+            navButtons.left.style.opacity = '0';
+            navButtons.left.addEventListener('transitionend', () => navButtons.left.remove(), { once: true });
+            navButtons.left = null;
+        }
+        if (navButtons.right) {
+            navButtons.right.style.opacity = '0';
+            navButtons.right.addEventListener('transitionend', () => navButtons.right.remove(), { once: true });
+            navButtons.right = null;
+        }
+    }
+
+    function setNavigationState(card) {
+        const currentIndex = cards.indexOf(card);
+        if (navButtons.left) {
+            navButtons.left.style.visibility = (currentIndex === 0) ? 'hidden' : 'visible';
+            navButtons.left.style.pointerEvents = (currentIndex === 0) ? 'none' : 'auto';
+        }
+        if (navButtons.right) {
+            navButtons.right.style.visibility = (currentIndex === cards.length - 1) ? 'hidden' : 'visible';
+            navButtons.right.style.pointerEvents = (currentIndex === cards.length - 1) ? 'none' : 'auto';
+        }
+    }
+
+    // Main Preview Functions
+    function openPreview(card, direction = 0) {
+        const isZoom = direction === 0;
+        const initialRect = isZoom ? card.getBoundingClientRect() : getCardRect(card);
+
+        if (isZoom) {
+            updatePlaceholder(card);
+            if (!overlay) createOverlay();
+        }
+        
+        activeCard = card;
+
+        // 🔑 Load dynamic media content
+        if (card.dataset.videoSrc) {
+            loadAndPlayMedia(card, card.dataset.videoSrc);
+        }
+
+        card.style.position = "fixed";
+        card.style.width = initialRect.width + "px";
+        card.style.height = initialRect.height + "px";
+        card.style.minHeight = initialRect.height + "px";
+        card.style.transition = "none"; 
+        card.style.animation = "none";
+        card.style.zIndex = 1000;
+        card.style.pointerEvents = "auto";
+        card.style.opacity = "1";
+        card.classList.add("zoomed");
+        card.style.display = 'block'; 
+
+        if (isZoom) {
+            card.style.top = initialRect.top + "px";
+            card.style.left = initialRect.left + "px";
+            card.style.transform = "scale(1)";
+        } else if (direction === 1) {
+            card.style.top = "50%";
+            card.style.left = "50%";
+            card.style.transform = "translate(150%, -50%)"; 
+            card.style.opacity = "0";
+        } else if (direction === -1) {
+            card.style.top = "50%";
+            card.style.left = "50%";
+            card.style.transform = "translate(-150%, -50%)"; 
+            card.style.opacity = "0";
+        }
+
+        setTimeout(() => {
+            card.style.top = "50%";
+            card.style.left = "50%";
+            card.style.width = "600px";
+            card.style.maxWidth = "90%";
+            card.style.height = "auto";
+            card.style.minHeight = "500px";
+            card.style.transform = "translate(-50%, -50%)";
+
+            if (isZoom) {
+                card.style.transition = "all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)";
+            } else {
+                card.style.opacity = "1";
+                // Fixed transition for simple slide
+                card.style.transition = `transform ${SLIDE_DURATION_S} ease-out, opacity ${SLIDE_DURATION_S} ease-out, box-shadow 0.4s ease`;
+            }
+
+            card.addEventListener("transitionend", function handler() {
+                const details = card.querySelector(".work-details");
+                details.style.opacity = "1";
+                details.style.maxHeight = "1000px";
+                details.style.visibility = "visible";
+                card.style.transition = "none";
+                setNavigationState(card); 
+                card.removeEventListener("transitionend", handler);
+            }, { once: true });
+        }, 20);
+    }
+
+    function closePreview(e, direction = 0) {
+        const card = e && e.target && e.target.classList.contains('close-button') 
+            ? e.target.closest('.work-card') 
+            : (e && e.tagName ? e : activeCard);
+        
+        if (!card) return;
+        if (e && e.stopPropagation) e.stopPropagation();
+
+        // 🔑 Stop and remove dynamic media content
+        stopAndRemoveMedia(card);
+        
+        const isZoomOut = direction === 0;
+
+        const details = card.querySelector(".work-details");
+        details.style.opacity = "0";
+        details.style.maxHeight = "0";
+        details.style.visibility = "hidden";
+
+        card.classList.remove("zoomed");
+        card.style.animation = "";
+        
+        if (isZoomOut) {
+            const rect = getCardRect(card);
+            activeCard = null; 
+            removeOverlay();
+
+            card.style.transition = "all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)"; 
+
+            card.style.width = rect.width + "px";
+            card.style.height = rect.height + "px";
+            card.style.minHeight = rect.height + "px"; 
+            card.style.top = rect.top + "px";
+            card.style.left = rect.left + "px";
+            card.style.transform = "none"; 
+
+            card.addEventListener("transitionend", function handler() {
+                finalCleanup(card); 
+                card.removeEventListener("transitionend", handler);
+            }, { once: true });
+
+        } else {
+            const animationName = direction === 1 ? 'slideOutLeft' : 'slideOutRight'; 
+            card.style.transition = "none";
+            card.style.animation = `${animationName} ${SLIDE_DURATION_S} ease-in-out forwards`;
+            
+            card.addEventListener("animationend", function handler() {
+                card.style.animation = 'none';
+                card.style.display = "none"; 
+                finalCleanup(card);
+                card.removeEventListener("animationend", handler);
+            }, { once: true });
+        }
+    }
+
+    function navigate(direction) {
+        if (!activeCard) return;
+
+        const currentIndex = cards.indexOf(activeCard);
+        const nextIndex = currentIndex + direction;
+
+        if (nextIndex < 0 || nextIndex >= cards.length) return;
+
+        const nextCard = cards[nextIndex];
+        
+        updatePlaceholder(activeCard, nextCard);
+
+        nextCard.style.display = 'none';
+
+        closePreview(activeCard, direction); 
+        
+        setTimeout(() => {
+            openPreview(nextCard, direction);
+        }, 50); 
+    }
+
+    // Initialize
+    document.querySelectorAll('.work-card').forEach(card => {
+        cards.push(card);
+        card.addEventListener('click', function(e) {
+            if (e.target.classList.contains('close-button')) return;
+            if (card.classList.contains('zoomed')) return;
+            activeCard = null; 
+            openPreview(card, 0);
+        });
+    });
+
+    document.addEventListener('keydown', e => {
+        if (!activeCard) return;
+        if (e.key === "ArrowLeft") navigate(-1);
+        if (e.key === "ArrowRight") navigate(1);
+        if (e.key === "Escape") closePreview(activeCard, 0); 
+    });
+//
+// Menu
+//
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Optional: Close nav when a link is clicked
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+
+// =========================================================
+// NEW CODE FOR CLOSING ON OUTSIDE CLICK/TOUCH
+// =========================================================
+
+document.addEventListener('click', (event) => {
+  // Check if the navigation menu is currently open (i.e., has the 'active' class)
+  const isNavOpen = nav.classList.contains('active');
+
+  // Check if the click/touch target is OUTSIDE both the navigation and the hamburger
+  const isClickInsideNav = nav.contains(event.target);
+  const isClickInsideHamburger = hamburger.contains(event.target);
+
+  // If the menu is open AND the click is NOT inside the nav AND the click is NOT on the hamburger...
+  if (isNavOpen && !isClickInsideNav && !isClickInsideHamburger) {
+    // ...then close the menu by removing the 'active' classes
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+</script>
+</body>
+</html>

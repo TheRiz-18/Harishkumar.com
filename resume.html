@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harishkumar-Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* ===========================
+   FONT-FACES
+=========================== */
+@font-face {font-family:"OldNewspaperTypes";src:url("fonts/OldNewspaperTypes.ttf") format("truetype");}
+@font-face {font-family:"SubwayNovella-KEw7";src:url("fonts/SubwayNovella-KEw7.ttf") format("truetype");}
+@font-face {font-family:"Docktrin";src:url("fonts/docktrin.ttf") format("truetype");}
+@font-face {font-family:"Break";src:url("fonts/Break.ttf") format("truetype");}
+@font-face {font-family:"Newton Howard Font";src:url("fonts/Newton Howard Font.ttf") format("truetype");}
+@font-face {font-family:"Enso-qWRq";src:url("fonts/Enso-qWRq.ttf") format("truetype");}
+@font-face {font-family:"Spell of Asia";src:url("fonts/Spell of Asia.ttf") format("truetype");}
+@font-face {font-family:"RingbearerMedium-51mgZ";src:url("fonts/RingbearerMedium-51mgZ.ttf") format("truetype");}
+@font-face {font-family:"dogicapixel";src:url("fonts/dogicapixel.ttf") format("truetype");}
+@font-face {font-family:"Enso-qWRq";src:url("fonts/Enso-qWRq.ttf") format("truetype");}
+@font-face {font-family:"Times New Roman Regular";src:url("fonts/Times New Roman Regular.ttf") format("truetype");}
+
+
+/* Reset & body */
+
+body { background-image: url('images/bg/riz2-background.jpg'); transition: background-image 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+color: #fff; overflow-x: hidden; }
+
+/* Portfolio section */
+.portfolio-section { max-width: 92%; margin: 0px auto;  padding: 20px; }
+.section-title { 
+    text-align: center; 
+    font-size: 2.8em;
+    font-family:"Newton Howard Font",sans-serif;
+    font-weight:normal;
+    margin-top: 6%; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: #7edc9c; /* Changed from purple to green */
+}
+
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  position:fixed;top:1%;left:50%;transform:translateX(-50%);
+  width:88%;background:transparent;backdrop-filter:blur(50px);
+  display:flex;justify-content:space-around;align-items:center;
+  padding:18px 36px;border-radius:20px;z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+header .logo {font-family:"Break",sans-serif;font-size:1.5rem;color:#fff;margin-right:auto;}
+header nav {display:flex;gap:30px;margin-left:auto;}
+header nav a {color:#fff;text-decoration:none;font-family:"Times New Roman Regular",sans-serif;font-size:0.9rem;transition:color 0.3s;}
+header nav a:hover {color:rgba(173, 216, 230, 1);} /* Adjusted hover to green */
+header nav a.active {color:#00bcd4;border-bottom:2px solid #00bcd4;} /* Changed from purple to green */
+
+
+
+
+/* ===========================
+   LOADING
+=========================== */
+/* Loader overlay */
+#page-loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#202628;
+  z-index: 3000;
+  transition: opacity 0.6s ease;
+}
+
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loader circle */
+.loader-circle-87 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.loader-circle-87::after,
+.loader-circle-87::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: solid 8px transparent;
+    border-radius: 50%;
+    animation: loader-circle-87-spin 1.4s ease infinite;
+}
+.loader-circle-87::before {
+    border-top-color: #cddc39;
+    border-bottom-color: #ff9800;
+}
+.loader-circle-87::after {
+    border-left-color: #03a9f4;
+    border-right-color: #e91e63;
+    animation-delay: 0.7s;
+}
+
+@keyframes loader-circle-87-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.5); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+
+
+
+
+
+
+
+
+/* HEADER */
+        .preview-controls {
+            width: 100%;
+            max-width: 650px; 
+margin-top: 10vh; 
+margin-left: 50px; 
+            margin-bottom: 20px; 
+        }
+        .preview-controls h1 {
+            font-size: 1.8em; 
+            font-weight: 700;
+            letter-spacing: 1px;
+    font-family:"Newton Howard Font",sans-serif;
+background: linear-gradient(90deg, #00bfff, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;     text-align: center; 
+
+        }
+
+        /* 🔥 INDEPENDENT BUTTONS: FIXED TO TOP RIGHT 🔥 */
+        .action-links {
+            position: fixed; 
+            top: 10vh; 
+            left: 700px; 
+            z-index: 1000; 
+            display: flex;
+            gap: 15px; 
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px; 
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em; 
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            white-space: nowrap; 
+        }
+
+        /* Button Colors and Hover Effects */
+        .btn-primary {
+            background-color: #007bff;
+            color: #f8f9fa; 
+            border: 2px solid #007bff; 
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            background-color: #00a0ff;
+            border-color: #00a0ff;
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ff6e8a;
+            border: 2px solid #ff6e8a; 
+        }
+        .btn-secondary:hover {
+            transform: translateY(-4px) scale(1.02);
+            background-color: #ff6e8a;
+            color: #f8f9fa;
+            box-shadow: 0 8px 20px rgba(255, 110, 138, 0.6);
+        }
+
+        .action-btn i {
+            margin-right: 8px; 
+            font-size: 1.1em;
+        }
+
+        /* PDF RESUME CONTAINER STYLES */
+        .resume-container-wrapper {
+            width: 100%;
+            max-width: 650px; 
+            flex-grow: 1; /* Takes up all remaining vertical space */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+margin-left: 100px; 
+
+            background-color: #27293d;
+        }
+
+        .resume-preview {
+            width: 100%;
+            padding-bottom: calc(100% * 1.4142); /* Fallback A4 ratio */
+            position: relative;
+            background-color: #fff; 
+        }
+        
+        .resume-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px; 
+            pointer-events: auto; 
+        }
+
+@media (max-width: 768px) {
+    /* BODY & LAYOUT */
+    body {
+background: #1e1e2d; 
+        /* Allow content to scroll when fixed elements are removed/adjusted */
+        padding-top: 10px; /* Space for the fixed header */
+    }
+
+/* HEADER */
+  header {
+    width: 88%;
+    padding: 10px 18px;
+    border-radius: 12px;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* MENU PANEL */
+  header nav {
+    position: fixed;
+    top: 0%;
+    right: -100%;
+    width: 55%; 
+    height: 100vh; 
+    border-left: 2px solid #00bcd4; 
+    border-bottom-left-radius: 20px; 
+    background: #1e1e2d; 
+    backdrop-filter: blur(8px); 
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding-top: 100px; 
+    padding-left: 30px; 
+    gap: 1.8rem; 
+    transition: right 0.4s cubic-bezier(0.7, 0, 0.3, 1); 
+    z-index: 1000;
+  }
+
+  header nav.active {
+    right: 0;
+  }
+
+ header nav a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #00bcd4;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+       /* SECTION TITLE */
+    .section-title {
+        font-size: 2em; /* Smaller font size on mobile */
+        margin-top: 5%;
+        letter-spacing: 1px;
+    }
+
+    /* RESUME PREVIEW AREA */
+    
+    /* Center the heading and remove fixed margin */
+    .preview-controls {
+        width: 90%;
+        max-width: 100%; /* Use full available width */
+        margin: 5vh auto 20px auto; /* Center with auto margin, smaller top margin */
+    }
+    .preview-controls h1 {
+        font-size: 1.5em;
+    }
+
+    .action-links {
+    position: relative; /* normal flow */
+    top: auto;
+    left: auto;
+    z-index: 1;
+    display: flex;
+    flex-direction: row; /* side by side */
+    justify-content: center; /* center in container */
+    gap: 8px;
+    width: 100%;
+    margin: 10px auto 25px auto; /* space below title */
+  }
+
+  .action-btn {
+    padding: 6px 14px;
+    font-size: 0.85em;
+    border-radius: 25px;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  .action-btn i {
+    font-size: 0.9em;
+    margin-right: 5px;
+  }
+
+  /* subtle hover tweak for mobile */
+  .action-btn:hover {
+    transform: scale(1.02);
+  }
+
+    /* PDF RESUME CONTAINER STYLES */
+    .resume-container-wrapper {
+        width: 90%;
+        max-width: 100%;
+        margin: 0px auto 40px auto; /* Center and add bottom margin for space */
+        border-radius: 10px; /* Slightly smaller border radius */
+    }
+    
+    .resume-preview {
+        /* The padding-bottom ratio remains, ensuring the aspect ratio */
+        padding-bottom: calc(100% * 1.4142); 
+    }
+    
+    .resume-preview iframe {
+        border-radius: 10px;
+    }
+}
+}
+
+
+/* ===========================
+    TABLET/SMALL DESKTOP RESPONSIVENESS (730px - 1300px)
+    This overrides the desktop fixed-position and keeps the buttons flowing with content.
+=========================== */
+@media (min-width: 769px) and (max-width: 1100px) {
+    /* 1. BUTTON CONTAINER (action-links) */
+    .action-links {
+        /* Reset from fixed desktop position */
+        position: relative; 
+        top: auto;
+        left: 50%;
+        
+        /* Layout: Side by side (Default flex-direction: row) */
+        display: flex;
+        flex-direction: row; 
+        justify-content: center; /* Center the two buttons */
+        align-items: center;
+
+        /* Sizing and Margins */
+        width: 100%; /* Take full width of parent container */
+        max-width: 650px; /* Match the resume container max width for alignment */
+        gap: 20px; /* Generous gap between buttons */
+        margin: 20px auto 30px auto; /* Center it horizontally, nice spacing */
+        z-index: 1; /* Bring it below the fixed header */
+        
+        /* Note: You may need to adjust the position of .preview-controls 
+           to ensure this section is truly centered and flowing. */
+    }
+
+    /* 2. INDIVIDUAL BUTTONS (action-btn) */
+    .action-btn {
+        /* Sizing and Font */
+        flex-grow: 0; /* Important: Don't let them take up all space */
+        flex-shrink: 1;
+        padding: 10px 25px; /* Bigger padding than mobile */
+        font-size: 1em; /* Slightly larger text */
+        
+        /* Design */
+        border-radius: 50px; /* Full pill shape */
+        white-space: nowrap; /* Prevent wrapping onto multiple lines */
+        justify-content: center;
+        
+        /* Keep original desktop hover effect for a richer interaction */
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    /* Re-enable the slightly more dramatic hover effect */
+    .action-btn:hover {
+        transform: translateY(-2px) scale(1.01); /* Reduced lift vs desktop */
+    }
+
+    /* 3. ICON (i) */
+    .action-btn i {
+        font-size: 1.1em;
+        margin-right: 8px; /* Slightly more space for the icon */
+    }
+
+    /* 4. RESUME CONTAINER ADJUSTMENT */
+    /* Ensure the wrapper is centered and maintains max width in this range */
+    .resume-container-wrapper {
+        margin-left: auto; 
+        margin-right: auto;
+        max-width: 650px; /* Ensure it respects the max width */
+    }
+}
+
+</style>
+</head>
+<body>
+<div id="page-loader">
+  <div class="loader-circle-87"></div>
+</div>
+
+  <header>
+  <div class="logo">Portfolio</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="works.html">WORKS</a>
+    <a href="certificate.html">CERTIFICATE</a>
+    <a href="resume.html" class="active">RESUME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+</header>
+
+
+    <div class="preview-controls">
+        <h1>My Professional Resume </h1>
+    </div>
+
+    <div class="action-links">
+<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/TheRiz-18/Harishkumar.com/main/Harishkumar%20R%20-%20Updated%20CV.pdf
+" target="_blank" class="action-btn btn-secondary">
+            <i class="fas fa-external-link-alt"></i> Full Screen
+        </a>
+        <a href="https://raw.githubusercontent.com/TheRiz-18/Portfolio/main/Harishkumar.com/Harishkumar%20R%20-%20Updated%20CV.pdf
+" download="Harishkumar R - Updated CV.pdf" class="action-btn btn-primary">
+            <i class="fas fa-download"></i> Download
+        </a>
+        
+    </div>
+
+    <div class="resume-container-wrapper">
+        <div class="resume-preview">
+            <iframe 
+                src="https://drive.google.com/file/d/1RM3x9vyBXFceCUE7fbgGHSP64ft69zkJ/preview#toolbar=0" 
+                title="Resume Preview" 
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+
+  
+
+  
+<script>
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+            loader.classList.add('fade-out');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 600);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', updateResumeHeight);
+    window.addEventListener('resize', updateResumeHeight);
+
+    function updateResumeHeight() {
+        const A4_RATIO = 1.4142; // Height / Width
+        const MAX_CSS_WIDTH = 650;
+
+        const wrapper = document.querySelector('.resume-container-wrapper');
+        const preview = document.querySelector('.resume-preview');
+        if (!wrapper || !preview) return;
+
+        const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
+        const controlsElement = document.querySelector('.preview-controls');
+        const controlsHeight = controlsElement ? controlsElement.offsetHeight : 0;
+
+        const VERTICAL_MARGIN_OVERHEAD = 180;
+        const availableViewportHeight = window.innerHeight - VERTICAL_MARGIN_OVERHEAD;
+
+        // Cut 10% of available height
+        const adjustedHeight = availableViewportHeight * 0.95;
+
+        // Get width based on adjusted height
+        let maxWidthBasedOnHeight = adjustedHeight / A4_RATIO;
+
+        // Increase width by 10%
+        maxWidthBasedOnHeight *= 1.1;
+
+        const finalWidth = Math.min(MAX_CSS_WIDTH, maxWidthBasedOnHeight);
+        const finalHeight = finalWidth * A4_RATIO * 0.9; // 10% height cut applied again for balance
+
+        if (finalWidth > 50) {
+            wrapper.style.width = finalWidth + 'px';
+            wrapper.style.height = finalHeight + 'px';
+            preview.style.paddingBottom = '0';
+            preview.style.height = '100%';
+        } else {
+            wrapper.style.width = '100%';
+            wrapper.style.height = 'auto';
+            preview.style.paddingBottom = (100 * A4_RATIO) + '%';
+            preview.style.height = 'auto';
+        }
+    }
+//
+// Menu
+//
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Optional: Close nav when a link is clicked
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+
+// =========================================================
+// NEW CODE FOR CLOSING ON OUTSIDE CLICK/TOUCH
+// =========================================================
+
+document.addEventListener('click', (event) => {
+  // Check if the navigation menu is currently open (i.e., has the 'active' class)
+  const isNavOpen = nav.classList.contains('active');
+
+  // Check if the click/touch target is OUTSIDE both the navigation and the hamburger
+  const isClickInsideNav = nav.contains(event.target);
+  const isClickInsideHamburger = hamburger.contains(event.target);
+
+  // If the menu is open AND the click is NOT inside the nav AND the click is NOT on the hamburger...
+  if (isNavOpen && !isClickInsideNav && !isClickInsideHamburger) {
+    // ...then close the menu by removing the 'active' classes
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

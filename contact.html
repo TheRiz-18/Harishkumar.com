@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harishkumar-Contact</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* ===========================
+   FONT-FACES
+=========================== */
+@font-face {font-family:"OldNewspaperTypes";src:url("fonts/OldNewspaperTypes.ttf") format("truetype");}
+@font-face {font-family:"RingbearerMedium-51mgZ";src:url("fonts/RingbearerMedium-51mgZ.ttf") format("truetype");}
+@font-face {font-family:"Break";src:url("fonts/Break.ttf") format("truetype");}
+@font-face {font-family:"Times New Roman Regular";src:url("fonts/Times New Roman Regular.ttf") format("truetype");}
+
+
+
+/* GLOBAL STYLES */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-image: url('images/bg/riz3-background.jpg'); transition: background-image 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 100px 20px 20px; /* extra right padding */
+}
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  position:fixed;top:1%;left:50%;transform:translateX(-50%);
+  width:92%;background:transparent;backdrop-filter:blur(50px);
+  display:flex;justify-content:space-around;align-items:center;
+  padding:10px 36px;border-radius:20px;z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+header .logo {font-family:"Break",sans-serif;font-size:1.5rem;color:#000;margin-right:auto;}
+header nav {display:flex;gap:30px;margin-left:auto;}
+header nav a {color:#000;text-decoration:none;font-family:"Times New Roman Regular",sans-serif;font-size:0.9rem;transition:color 0.3s;}
+header nav a:hover {color:#8A0303;} /* Adjusted hover to green */
+header nav a.active {color:#8A0303;border-bottom:2px solid #8A0303;} /* Changed from purple to green */
+
+
+
+
+
+
+
+
+
+
+
+/* ===========================
+   LOADING
+=========================== */
+/* Loader overlay */
+#page-loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#202628;
+  z-index: 3000;
+  transition: opacity 0.6s ease;
+}
+
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Loader circle */
+.loader-circle-87 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.loader-circle-87::after,
+.loader-circle-87::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: solid 8px transparent;
+    border-radius: 50%;
+    animation: loader-circle-87-spin 1.4s ease infinite;
+}
+.loader-circle-87::before {
+    border-top-color: #cddc39;
+    border-bottom-color: #ff9800;
+}
+.loader-circle-87::after {
+    border-left-color: #03a9f4;
+    border-right-color: #e91e63;
+    animation-delay: 0.7s;
+}
+
+@keyframes loader-circle-87-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.5); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+
+/* ===========================
+   CARD
+=========================== */
+.contact-card {
+    width: 90%;
+    max-width: 750px;
+    background: #e0e5ec;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
+    text-align: center;
+    padding: 40px;
+    transition: all 0.3s ease-in-out; 
+}
+
+/* TITLE SECTION */
+.card-title {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-title h1 {
+    font-size: 2em;
+    font-family:"RingbearerMedium-51mgZ",sans-serif;
+    font-weight: normal; 
+    color: #8A0303;
+    margin-bottom: 5px;
+}
+
+.card-title p {
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 400;
+    color: #666;
+}
+
+/* DETAILS SECTION */
+.contact-details {
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+}
+
+.detail-link {
+    text-decoration: none;
+    display: block;
+    color: inherit; 
+    transition: all 0.3s ease-in-out; 
+    border-radius: 12px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    background: #e0e5ec;
+    text-align: left;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+}
+
+.detail-link:hover .detail-item {
+    transform: translateY(-2px); 
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+    background-color: #e0e5ec;
+}
+
+.icon {
+    font-size: 1.5em;
+    color: #333; 
+    margin-right: 20px;
+    width: 30px;
+    text-align: center;
+    transition: color 0.3s, transform 0.3s;
+}
+.detail-link:hover .icon {
+    color: #8A0303 !important; /* force blood red */
+    transform: scale(1.1) !important;
+}
+
+
+.fas.icon {
+    transform: scale(0.9);  /* default size */
+    transition: transform 0.3s, color 0.3s; /* add color transition */
+}
+
+.info-text span { display: block; font-size: 0.85em; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.link-data { display: block; font-size: 1em; font-weight: 600; color: #333; text-decoration: none; transition: color 0.3s; }
+.detail-link:hover .info-text span:not(.link-data) { color: #000; }
+.detail-link:hover .link-data { color: #8A0303; }
+
+/* FOOTER STYLES */
+.card-footer { padding-top: 25px; margin-top: 25px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+.card-footer p { font-size: 0.85em;    font-family: 'Poppins', sans-serif;
+ color: #777; }
+
+/* ===========================
+    RESPONSIVE DESIGN (MOBILE-FIRST & MEDIA QUERIES)
+=========================== */
+
+/* GENERAL MOBILE ADJUSTMENTS (Applied below 768px) */
+@media (max-width: 768px) {
+    /* BODY: Adjust for full-width content on mobile */
+    body {
+    background: #e0e5ec;
+        justify-content: center;
+        align-items: flex-start;
+        /* Reduce overall padding, make it symmetrical */
+        padding: 8px;
+    }
+
+      /* HEADER */
+  header {
+    padding: 5px 18px;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* MENU PANEL */
+  header nav {
+    position: fixed;
+    top: 0%;
+    right: -100%;
+    width: 55%; 
+    height: 100vh; 
+    border-left: 2px solid #8A0303; 
+    border-bottom-left-radius: 20px; 
+    background: #e0e5ec; 
+    backdrop-filter: blur(8px); 
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6); 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding-top: 100px; 
+    padding-left: 30px; 
+    gap: 1.8rem; 
+    transition: right 0.4s cubic-bezier(0.7, 0, 0.3, 1); 
+    z-index: 1000;
+  }
+
+  header nav.active {
+    right: 0;
+  }
+
+ header nav a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: #8A0303;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+    /* CARD: Adjust for full-width and centered layout */
+    .contact-card {
+        width: 95%; /* Maximize width within body padding */
+        max-width: none; /* Allow it to stretch (up to 768px) */
+        padding: 30px 20px; /* Reduce padding inside the card */
+        margin-top: 80px; /* Push the card down to avoid collision with fixed header */
+        /* Re-center the card's content */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* CARD TITLE */
+    .card-title h1 {
+        font-size: 1.7em; /* Smaller title */
+    }
+
+.info-text span { font-size: 0.7em;  }
+
+    /* DETAIL ITEMS: Change to a single column layout */
+    .contact-details {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 15px; /* Reduce gap */
+    }
+.card-title p, .card-footer {
+        font-size: 0.8em;
+    }
+
+    .detail-item {
+        padding: 12px 15px; /* Smaller padding inside detail items */
+    }
+
+    .icon {
+        font-size: 1.3em; /* Slightly smaller icon */
+        margin-right: 15px; /* Reduce margin */
+        width: 25px; /* Smaller width for alignment */
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-circle-87"></div>
+</div>
+
+  <header>
+  <div class="logo">Portfolio</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="works.html">WORKS</a>
+    <a href="certificate.html">CERTIFICATE</a>
+    <a href="resume.html">RESUME</a>
+    <a href="contact.html"class="active">CONTACT</a>
+  </nav>
+</header>
+
+<div class="contact-card">
+    <div class="card-title">
+        <h1>Available for hire.</h1>
+        <p>Let’s create something amazing together — contact me!</p>
+    </div>
+
+    <section class="contact-details">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=harish2k0318@gmail.com" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fas fa-envelope icon"></i>
+                <div class="info-text">
+                    <span>Email Address</span>
+                    <span class="link-data">harish2k0318@gmail.com</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="tel:+917639264637" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fas fa-phone icon"></i>
+                <div class="info-text">
+                    <span>Phone</span>
+                    <span class="link-data">+917639264637</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://wa.me/917639264637" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fab fa-whatsapp icon"></i>
+                <div class="info-text">
+                    <span>Whatsapp</span>
+                    <span class="link-data">7639264637</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/harishkumar-r-18062k03" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fab fa-linkedin icon"></i>
+                <div class="info-text">
+                    <span>Professional Network</span>
+                    <span class="link-data">LinkedIn Profile</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.instagram.com/the_.riz" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fab fa-instagram icon"></i>
+                <div class="info-text">
+                    <span>Instagram</span>
+                    <span class="link-data">@the_.riz</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Location -->
+        <a href="https://www.google.com/maps/search/Sivagangai,India" target="_blank" class="detail-link">
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <div class="info-text">
+                    <span>Location</span>
+                    <span class="link-data">Sivagangai, Tamil Nadu</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="detail-link" id="relocate-link">
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <div class="info-text">
+                    <span>Relocate</span>
+                    <span class="link-data">Coimbatore, Tamil Nadu</span>
+                    <span class="link-data">Chennai, Tamil Nadu</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <footer class="card-footer">
+        <p>I aim to respond within 24 hours.</p>
+    </footer>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+      // Add fade-out class
+      loader.classList.add('fade-out');
+
+      // Wait for fade animation to finish, then remove from DOM
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 600); // match your CSS transition duration (0.6s)
+    }
+  });
+
+document.getElementById('relocate-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    const choice = prompt("Type 1 for Coimbatore?\n or \nType 2 for Chennai");
+    if (choice === '1') window.open("https://www.google.com/maps/search/Coimbatore,India", "_blank");
+    else if (choice === '2') window.open("https://www.google.com/maps/search/Chennai,India", "_blank");
+});
+  /* Updated JavaScript to close the menu on outside click */
+
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Optional: Close nav when a link is clicked
+document.querySelectorAll('header nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+
+// =========================================================
+// NEW CODE FOR CLOSING ON OUTSIDE CLICK/TOUCH
+// =========================================================
+
+document.addEventListener('click', (event) => {
+  // Check if the navigation menu is currently open (i.e., has the 'active' class)
+  const isNavOpen = nav.classList.contains('active');
+
+  // Check if the click/touch target is OUTSIDE both the navigation and the hamburger
+  const isClickInsideNav = nav.contains(event.target);
+  const isClickInsideHamburger = hamburger.contains(event.target);
+
+  // If the menu is open AND the click is NOT inside the nav AND the click is NOT on the hamburger...
+  if (isNavOpen && !isClickInsideNav && !isClickInsideHamburger) {
+    // ...then close the menu by removing the 'active' classes
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+</script>
+
+</body>
+</html>
