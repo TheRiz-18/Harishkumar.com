@@ -7,7 +7,6 @@
 <!-- Default favicon -->
 <link id="favicon-light" rel="icon" href="icons/dark.png" type="image/png">
 <link id="favicon-dark" rel="icon" href="icons/light.png" type="image/png" media="(prefers-color-scheme: dark)">
-
 <style>
 /* ===========================
    FONT-FACES
@@ -868,37 +867,46 @@ border-top:1px solid white;
     }
   });
 
-  /* ===========================
+ /* ===========================
      TYPING EFFECT LOGIC
   =========================== */
-  function typeEffect() {
-    if (!typingElement) return;
-    const currentText = texts[textIndex];
+function typeEffect() {
+  if (!typingElement) return;
+  const currentText = texts[textIndex];
 
-    if (!isDeleting) {
-      // Typing forward
-      typingElement.textContent = currentText.slice(0, ++charIndex);
-      if (charIndex === currentText.length) {
-        isDeleting = true;
-        typingTimer = setTimeout(typeEffect, 1000); // Pause at the end of the word
-        return;
-      }
-    } else {
-      // Deleting backward
-      typingElement.textContent = currentText.slice(0, --charIndex);
-      if (charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length; // Move to the next text
-      }
+  if (!isDeleting) {
+    // Typing forward
+    typingElement.textContent = currentText.slice(0, ++charIndex);
+    if (charIndex === currentText.length) {
+      isDeleting = true;
+      typingTimer = setTimeout(typeEffect, 1000); // Pause at the end of the word
+      return;
     }
-
-    // Speed control: Slower when typing (100ms), faster when deleting (50ms)
-    typingTimer = setTimeout(typeEffect, isDeleting ? 50 : 100);
+  } else {
+    // Deleting backward
+    typingElement.textContent = currentText.slice(0, --charIndex);
+    if (charIndex === 0) {
+      // 🟢 Add a visible blank line (gap) before next text
+      typingElement.innerHTML = "&nbsp;"; // blank space + line break
+      setTimeout(() => {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length; // Move to next text
+        typingElement.textContent = ""; // clear before typing next
+        typeEffect();
+      }, 700); // Gap delay (increase for longer pause)
+      return;
+    }
   }
 
-  function stopTyping() {
-    if (typingTimer) clearTimeout(typingTimer);
-  }
+  // Speed control: Slower when typing (100ms), faster when deleting (50ms)
+  typingTimer = setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+function stopTyping() {
+  if (typingTimer) clearTimeout(typingTimer);
+}
+
+
 
   /* ===========================
      NAVIGATION (Optional, based on your structure)
@@ -976,5 +984,4 @@ document.addEventListener('click', (event) => {
 
 </script>
 </body>
-
 </html>
