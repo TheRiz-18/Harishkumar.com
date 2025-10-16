@@ -195,6 +195,60 @@ h4 {
 
 
 
+
+
+.media-loader {
+    /* Style for a simple spinning loader */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid #ffffff; /* Loader color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10; /* Ensure it's above the blank background */
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+/* Apply to all media elements (img, video) that are in fullscreen mode */
+:fullscreen img,
+:fullscreen video,
+:-webkit-full-screen img,
+:-webkit-full-screen video,
+:-moz-full-screen img,
+:-moz-full-screen video,
+:-ms-fullscreen img,
+:-ms-fullscreen video {
+    /* The key property: ensures the entire image/video is visible */
+    object-fit: contain !important; 
+    
+    /* Ensure it fills the entire fullscreen container */
+    width: 100% !important;
+    height: 100% !important;
+    
+    /* Set the background to black for the "letterbox" areas */
+    background-color: black !important;
+}
+
+/* Specific fix for the .zoomed-content class on media in fullscreen */
+.zoomed-content:fullscreen,
+.zoomed-content:-webkit-full-screen {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+
+
 /* ===========================
 WORK CARD 
 =========================== */
@@ -236,7 +290,7 @@ margin-bottom: 10px;
 
 /* Adjust zoomed state to be more flexible */
 .work-card.zoomed {
-    z-index: 1000;
+    z-index: 0;
     box-shadow: 0 0px 18px rgba(220,208,255, 0.8);
     overflow: visible;
     display: flex;
@@ -899,7 +953,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Designs/Sonali_poster2_1.jpg">
     <img src="Works/Works/Designs/Sonali_poster2_1.jpg" alt="Sonali Poster 2" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Sonali Poster - Wire & Cable</h3>
         <p class="work-description">An interview-focused design edit for a wire and cable company.</p>
@@ -915,7 +969,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Sonali_Poster3.jpg">
     <img src="Works/Works/Designs/Sonali_Poster3.jpg" alt="Sonali Poster 3" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Sonali Poster - Additional Design</h3>
         <p class="work-description">A complementary design edit for the same wire and cable company project.</p>
@@ -931,7 +985,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-login.jpg">
     <img src="Works/Works/Designs/Innool-app-ui-login.jpg" alt="Innool App Login UI" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Innool App UI - Login Screen</h3>
         <p class="work-description">Login interface design for Innool, an unfinished college project for study material.</p>
@@ -947,7 +1001,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-home.jpg">
     <img src="Works/Works/Designs/Innool-app-ui-home.jpg" alt="Innool App Home UI" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Innool App UI - Home Screen</h3>
         <p class="work-description">Home screen design for the Innool study material app concept.</p>
@@ -963,7 +1017,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Innool-app-ui-page2.jpg">
     <img src="Works/Works/Designs/Innool-app-ui-page2.jpg" alt="Innool App Page 2 UI" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Innool App UI - Secondary Page</h3>
         <p class="work-description">A secondary content or feature page UI design for the Innool app.</p>
@@ -979,7 +1033,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/riz-vocab-welcome.jpg">
     <img src="Works/Works/Designs/riz-vocab-welcome.jpg" alt="Riz Vocab Welcome" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Riz Vocab Bot Welcome</h3>
         <p class="work-description">The welcome message design for a Telegram bot that sends automated vocabulary updates.</p>
@@ -996,7 +1050,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Zutriva Invoice.jpg">
     <img src="Works/Works/Designs/Zutriva Invoice.jpg" alt="Zutriva Invoice" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Tourism Invoice</h3>
         <p class="work-description">Invoice design for Zutriva, a freelance tourism startup.</p>
@@ -1012,7 +1066,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/zutriva-coastal-poster.jpg">
     <img src="Works/Works/Designs/zutriva-coastal-poster.jpg" alt="Zutriva Coastal Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Coastal Trip Poster</h3>
         <p class="work-description">Promotional poster design for a Zutriva coastal tourism package.</p>
@@ -1028,7 +1082,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/zutriva-temple-poster.jpg">
     <img src="Works/Works/Designs/zutriva-temple-poster.jpg" alt="Zutriva Temple Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Temple Tour Poster</h3>
         <p class="work-description">Promotional poster design for a Zutriva temple tourism package.</p>
@@ -1044,7 +1098,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/zutriva-hills-poster.jpg">
     <img src="Works/Works/Designs/zutriva-hills-poster.jpg" alt="Zutriva Hills Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Hills Trip Poster</h3>
         <p class="work-description">Promotional poster design for a Zutriva hill station tourism package.</p>
@@ -1060,7 +1114,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/zutriva-poster.jpg">
     <img src="Works/Works/Designs/zutriva-poster.jpg" alt="Zutriva Kodaikanal Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Kodaikanal Departure Poster</h3>
         <p class="work-description">A departure announcement poster for a tour to Kodaikanal.</p>
@@ -1076,7 +1130,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Arupadai Ad.jpg">
     <img src="Works/Works/Designs/Arupadai Ad.jpg" alt="Arupadai Tour Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Arupadai Tour Advertisement</h3>
         <p class="work-description">Poster design for a tour package visiting the Arupadai Veedu temples.</p>
@@ -1092,7 +1146,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/Zutriva-tkt.jpg">
     <img src="Works/Works/Designs/Zutriva-tkt.jpg" alt="Zutriva Ticket" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Auto-Generated Ticket</h3>
         <p class="work-description">Design for the auto-generated ticket provided to customers.</p>
@@ -1108,7 +1162,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/isdall-women-poster.jpg">
     <img src="Works/Works/Designs/isdall-women-poster.jpg" alt="Isdall Women Poster 1" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women Poster (AI Film)</h3>
         <p class="work-description">Poster design for an AI short film utilizing various AI tools in its production.</p>
@@ -1124,7 +1178,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/isdall-women-poster2.jpg">
     <img src="Works/Works/Designs/isdall-women-poster2.jpg" alt="Isdall Women Poster 2" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women Poster (Alternate)</h3>
         <p class="work-description">An alternate poster design for the same AI short film project.</p>
@@ -1140,7 +1194,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/grand-open.jpg">
     <img src="Works/Works/Designs/grand-open.jpg" alt="Grand Opening Invitation" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Grand Opening Invitation</h3>
         <p class="work-description">A general invitation design for a grand opening event.</p>
@@ -1156,7 +1210,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/concept-cafe.jpg">
     <img src="Works/Works/Designs/concept-cafe.jpg" alt="Concept Cafe Poster" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chill N Chicken Cafe Poster</h3>
         <p class="work-description">Concept poster design for a cafe named 'Chill N Chicken'.</p>
@@ -1172,7 +1226,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Designs/concept-recharge.jpg">
     <img src="Works/Works/Designs/concept-recharge.jpg" alt="Concept Recharge UI" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Concept Recharge App UI</h3>
         <p class="work-description">Conceptual UI screen design for a mobile recharge application.</p>
@@ -1204,7 +1258,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Logo/Zutriva-offical-logo.jpg">
     <img src="Works/Works/Logo/Zutriva-offical-logo.jpg" alt="Zutriva Official Logo" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Official Logo</h3>
         <p class="work-description">The final, official brand mark for the Zutriva tourism startup.</p>
@@ -1220,7 +1274,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/zutriva-official-full-logo.jpg">
     <img src="Works/Works/Logo/zutriva-official-full-logo.jpg" alt="Zutriva Official Full Logo" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Official Full Logo</h3>
         <p class="work-description">The official horizontal or full version of the Zutriva brand identity.</p>
@@ -1236,7 +1290,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/zutriva-concept-logo.jpg">
     <img src="Works/Works/Logo/zutriva-concept-logo.jpg" alt="Zutriva Concept Logo 1" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Full Concept Logo</h3>
         <p class="work-description">An alternative conceptual design exploring different typography and icon styles for Zutriva.</p>
@@ -1252,7 +1306,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/zutriva-concept-logo1.jpg">
     <img src="Works/Works/Logo/zutriva-concept-logo1.jpg" alt="Zutriva Concept Logo 2" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Concept Logo</h3>
         <p class="work-description">A conceptual logo design for Zutriva, focusing on a distinct travel-themed visual mark.</p>
@@ -1268,7 +1322,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/chillnchicken-concept-logo.jpg">
     <img src="Works/Works/Logo/chillnchicken-concept-logo.jpg" alt="Chill n Chicken Concept Logo 1" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chill N Chicken Concept 1</h3>
         <p class="work-description">Initial concept logo exploring an identity for the 'Chill N Chicken' cafe.</p>
@@ -1284,7 +1338,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/chillnchicken2-concept-logo.jpg">
     <img src="Works/Works/Logo/chillnchicken2-concept-logo.jpg" alt="Chill n Chicken Concept Logo 2" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chill N Chicken Concept 2</h3>
         <p class="work-description">Second concept logo, introducing alternate color or stylistic elements.</p>
@@ -1300,7 +1354,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/chillnchicken3-concept-logo.jpg">
     <img src="Works/Works/Logo/chillnchicken3-concept-logo.jpg" alt="Chill n Chicken Concept Logo 3" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chill N Chicken Concept 3</h3>
         <p class="work-description">Third concept logo, further refining the cafe's brand identity.</p>
@@ -1316,7 +1370,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/chillnchicken4-concept-logo.jpg">
     <img src="Works/Works/Logo/chillnchicken4-concept-logo.jpg" alt="Chill n Chicken Concept Logo 4" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chill N Chicken Concept 4</h3>
         <p class="work-description">Final concept logo in the series, presenting a potential final direction.</p>
@@ -1332,7 +1386,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/Ilam-kalvi.jpg">
     <img src="Works/Works/Logo/Ilam-kalvi.jpg" alt="Ilam Kalvi Logo" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Ilam Kalvi Startup Logo</h3>
         <p class="work-description">Conceptual logo for 'Ilam Kalvi,' a startup focused on competitive exam preparation.</p>
@@ -1348,7 +1402,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/riz-vocab-dp.jpg">
     <img src="Works/Works/Logo/riz-vocab-dp.jpg" alt="Riz Vocab Logo" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Riz Vocab Telegram Bot Logo</h3>
         <p class="work-description">Logo/Display Picture (DP) designed for the Riz Vocab automated vocabulary bot.</p>
@@ -1365,7 +1419,7 @@ text-allignment: center;
 </div>
 <div class="work-card" data-video-src="Works/Works/Logo/concept-logo.jpg">
     <img src="Works/Works/Logo/concept-logo.jpg" alt="Unnamed Concept Logo" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Unnamed Simple Concept Logo</h3>
         <p class="work-description">A clean, simple concept logo design focusing on geometric shape and minimal form.</p>
@@ -1396,7 +1450,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-1.mp4">
                 <img src="Works/Works/Thumbnail/Sonali-1.jpg" alt="Project 1" class="work-image">
-                <div class="work-media-zoom"></div> <div class="work-overlay">
+                <div class="work-media-zoom"> <div class="media-loader"></div> </div> <div class="work-overlay">
                     <h3 class="work-title">Sonali Wires</h3>
                     <p class="work-description">Sonali Wires And Cables brand representation video.</p>
                 </div>
@@ -1413,7 +1467,7 @@ text-allignment: center;
             
             <div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-2.mp4">
     <img src="Works/Works/Thumbnail/Sonali-2.jpg" alt="Project 2" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Sonali Wires 2</h3>
         <p class="work-description">A follow-up brand representation video for Sonali Wires and Cables.</p>
@@ -1430,7 +1484,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva1.mp4">
     <img src="Works/Works/Thumbnail/Zutriva1.jpg" alt="Project 3" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Tourism</h3>
         <p class="work-description">Engaging tourism promotional video edit for the startup company Zutriva.</p>
@@ -1447,7 +1501,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva2.mp4">
     <img src="Works/Works/Thumbnail/Zutriva2.jpg" alt="Project 4" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Adventure</h3>
         <p class="work-description">A second promotional video edit for Zutriva, focusing on adventurous travel experiences.</p>
@@ -1464,7 +1518,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Zutriva-poster.mp4">
     <img src="Works/Works/Thumbnail/Zutriva-poster.jpg" alt="Project 5" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Poster Animation</h3>
         <p class="work-description">Animated poster edit for Zutriva, bringing a static design to life.</p>
@@ -1481,7 +1535,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women-poster.mp4">
     <img src="Works/Works/Thumbnail/Isdall-women-poster.jpg" alt="Project 6" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women - Poster Motion</h3>
         <p class="work-description">A dynamic motion poster for the 'Isdall Women' AI film.</p>
@@ -1498,7 +1552,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women1.mp4">
     <img src="Works/Works/Thumbnail/Isdall-women1.jpg" alt="Project 7" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women - Teaser</h3>
         <p class="work-description">Short film teaser for 'Isdall Women,' the first AI-driven South Indian film.</p>
@@ -1515,7 +1569,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women2.mp4">
     <img src="Works/Works/Thumbnail/Isdall-women2.jpg" alt="Project 8" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women - Scene 1</h3>
         <p class="work-description">A specific scene edit from the AI short film, 'Isdall Women.'</p>
@@ -1532,7 +1586,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women3.mp4">
     <img src="Works/Works/Thumbnail/Isdall-women3.jpg" alt="Project 9" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women - Scene 2</h3>
         <p class="work-description">A second specific scene edit from the AI short film, 'Isdall Women.'</p>
@@ -1549,7 +1603,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Isdall-women-film.mp4">
     <img src="Works/Works/Thumbnail/Isdall-women-film.jpg" alt="Project 10" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Isdall Women - Full Film</h3>
         <p class="work-description">The complete edit of 'Isdall Women,' an AI-generated short film.</p>
@@ -1568,7 +1622,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Corona-Heros.mp4">
     <img src="Works/Works/Thumbnail/Corona-Heros.jpg" alt="Project 11" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Corona Heroes Tribute</h3>
         <p class="work-description">A mashup and tribute edit dedicated to the frontline heroes of the COVID-19 pandemic.</p>
@@ -1585,7 +1639,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Mysore-zoo.mp4">
     <img src="Works/Works/Thumbnail/Mysore-zoo.jpg" alt="Project 12" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Mysore Zoo Montage</h3>
         <p class="work-description">A travel and nature edit capturing the variety of animals and sights at Mysore Zoo.</p>
@@ -1602,7 +1656,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Editors-day.mp4">
     <img src="Works/Works/Thumbnail/Editors-day.jpg" alt="Project 13" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Tribute to Editors</h3>
         <p class="work-description">A special tribute video celebrating the craft and contribution of professional film editors.</p>
@@ -1619,7 +1673,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Sridivya.mp4">
     <img src="Works/Works/Thumbnail/Sridivya.jpg" alt="Project 14" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Sridivya Showcase</h3>
         <p class="work-description">A fan edit showcasing the actress Sridivya, focusing on her lovable and cute moments.</p>
@@ -1636,7 +1690,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/thamizhan.mp4">
     <img src="Works/Works/Thumbnail/thamizhan.jpg" alt="Project 15" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Proud Thamizhan</h3>
         <p class="work-description">An edit expressing pride and showcasing the rich culture of the Tamil people.</p>
@@ -1653,7 +1707,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/HBD-to-me.mp4">
     <img src="Works/Works/Thumbnail/HBD-to-me.jpg" alt="Project 16" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">My Birthday Fun Edit</h3>
         <p class="work-description">A creative, fun-filled personal edit celebrating a birthday.</p>
@@ -1670,7 +1724,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/HBD-chiyaan.mp4">
     <img src="Works/Works/Thumbnail/HBD-chiyaan.jpg" alt="Project 17" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chiyaan Vikram Birthday</h3>
         <p class="work-description">A tribute and celebration edit for the popular South Indian actor, Chiyaan Vikram.</p>
@@ -1687,7 +1741,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Thupakki-title.mp4">
     <img src="Works/Works/Thumbnail/Thupakki-title.jpg" alt="Project 18" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Thupakki Title Recreation</h3>
         <p class="work-description">Recreation of the iconic 'Thupakki' movie title card, personalized with my name.</p>
@@ -1704,7 +1758,7 @@ text-allignment: center;
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Singam-title.mp4">
     <img src="Works/Works/Thumbnail/Singam-title.jpg" alt="Project 19" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Singam Title Recreation</h3>
         <p class="work-description">Recreation of the 'Singam' movie title card, personalized with my name.</p>
@@ -1737,7 +1791,7 @@ text-allignment: center;
 <!-- 1. Portfolio Website of Mine -->
 <div class="work-card" data-video-src="Works/Works/Websites/harishkumar-portfolio.mp4">
     <img src="Works/Works/Websites/harishkumar-portfolio.jpg" alt="Portfolio Website" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Portfolio Website</h3>
         <p class="work-description">My personal portfolio showcasing projects and skills.</p>
@@ -1758,7 +1812,7 @@ text-allignment: center;
 <!-- 2. Zutriva Advance Booking Form Website -->
 <div class="work-card" data-video-src="Works/Works/Websites/Zutriva-advance-booking.mp4">
     <img src="Works/Works/Websites/Zutriva-advance-booking.jpg" alt="Zutriva Advance Booking Form" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Advance Booking</h3>
         <p class="work-description">Online booking system for Zutriva services.</p>
@@ -1779,7 +1833,7 @@ text-allignment: center;
 <!-- 3. Zutriva Balance Payment Form Website -->
 <div class="work-card" data-video-src="Works/Works/Websites/Zutriva-balance-payment.mp4">
     <img src="Works/Works/Websites/Zutriva-balance-payment.jpg" alt="Zutriva Balance Payment Form" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Zutriva Balance Payment</h3>
         <p class="work-description">Form for processing client balance payments.</p>
@@ -1800,7 +1854,7 @@ text-allignment: center;
 <!-- 4. Zutriva Automated Invoice Generator -->
 <div class="work-card" data-video-src="Works/Works/Websites/Automated-invoice-generator.mp4">
     <img src="Works/Works/Websites/Automated-invoice-generator.jpg" alt="Automated Invoice Generator" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Automated Invoice Generator</h3>
         <p class="work-description">Generates invoices automatically for businesses.</p>
@@ -1821,7 +1875,7 @@ text-allignment: center;
 <!-- 5. Ilam Kalvi Startup Website -->
 <div class="work-card" data-video-src="Works/Works/Websites/ilamkalvi.mp4">
     <img src="Works/Works/Websites/ilamkalvi.jpg" alt="Ilam Kalvi Startup Website" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Ilam Kalvi Startup</h3>
         <p class="work-description">Website for competitive exam and banking aspirants.</p>
@@ -1857,7 +1911,7 @@ text-allignment: center;
 <!-- 1. Arupadai FAQ -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/arupadai-faq.mp4">
     <img src="Works/Works/PDF_Design/arupadai-faq.jpg" alt="Arupadai FAQ" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Arupadai Murugan FAQ</h3>
         <p class="work-description">FAQ document for Arupadai Murugan Temple tour.</p>
@@ -1877,7 +1931,7 @@ text-allignment: center;
 <!-- 2. MDU 5D & 4N Tour -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-ARUPADAI (5D&4N) tour.mp4">
     <img src="Works/Works/PDF_Design/MDU-ARUPADAI (5D&4N) tour.jpg" alt="MDU ARUPADAI Tour" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">MDU Arupadai 5D & 4N Tour</h3>
         <p class="work-description">Complete itinerary for the 5-day Arupadai tour from Madurai.</p>
@@ -1897,7 +1951,7 @@ text-allignment: center;
 <!-- 3. MDU CCP FAQ -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-CCP-faq.mp4">
     <img src="Works/Works/PDF_Design/MDU-CCP-faq.jpg" alt="MDU CCP FAQ" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chidambaram CCP FAQ</h3>
         <p class="work-description">FAQ for Chidambaram temple tour (CCP itinerary).</p>
@@ -1917,7 +1971,7 @@ text-allignment: center;
 <!-- 4. MDU CDM 2D & 1N Tour -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-CDM (2D&1N)-tour.mp4">
     <img src="Works/Works/PDF_Design/MDU-CDM (2D&1N)-tour.jpg" alt="MDU CDM Tour" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Chidambaram CDM 2D & 1N Tour</h3>
         <p class="work-description">Short tour itinerary for Chidambaram temple visit.</p>
@@ -1937,7 +1991,7 @@ text-allignment: center;
 <!-- 5. MDU UAM 2D & 1N Tour -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-UAM (2D&1N)tour.mp4">
     <img src="Works/Works/PDF_Design/MDU-UAM (2D&1N)tour.jpg" alt="MDU UAM Tour" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Ooty UAM 2D & 1N Tour</h3>
         <p class="work-description">2-day itinerary for UAM tour from Madurai.</p>
@@ -1957,7 +2011,7 @@ text-allignment: center;
 <!-- 6. MDU UAM FAQ -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-UAM-faq.mp4">
     <img src="Works/Works/PDF_Design/MDU-UAM-faq.jpg" alt="MDU UAM FAQ" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Ooty UAM FAQ</h3>
         <p class="work-description">FAQ document for Ooty UAM tour travelers.</p>
@@ -1977,7 +2031,7 @@ text-allignment: center;
 <!-- 7. MDU VKN 2D & 1N Tour -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-VKN(2D&1N)tour.mp4">
     <img src="Works/Works/PDF_Design/MDU-VKN(2D&1N)tour.jpg" alt="MDU VKN Tour" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Velankanni VKN 2D & 1N Tour</h3>
         <p class="work-description">2-day itinerary for Velankanni tour from Madurai.</p>
@@ -1997,7 +2051,7 @@ text-allignment: center;
 <!-- 8. MDU VKN FAQ -->
 <div class="work-card" data-video-src="Works/Works/PDF_Design/MDU-VKN-faq.mp4">
     <img src="Works/Works/PDF_Design/MDU-VKN-faq.jpg" alt="MDU VKN FAQ" class="work-image">
-    <div class="work-media-zoom"></div>
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
     <div class="work-overlay">
         <h3 class="work-title">Velankanni VKN FAQ</h3>
         <p class="work-description">FAQ for Velankanni 2-day tour travelers.</p>
@@ -2151,11 +2205,57 @@ function loadAndPlayMedia(card, mediaSrc) {
     const mediaContainer = card.querySelector('.work-media-zoom');
     mediaContainer.innerHTML = ''; // Clear previous content
 
-    // Create media controls container for both videos and images
+    // --- State Tracking for 2-second Minimum Load ---
+    let mediaReady = false;
+    let timerFinished = false;
+    const MIN_LOAD_TIME_MS = 0; // 2 seconds
+
+    // Function to run when both the media is loaded AND the 2-second timer is up
+    const showMedia = () => {
+        if (mediaReady && timerFinished) {
+            // Find the loader element to remove it
+            const loader = mediaContainer.querySelector('.media-loader');
+            const mediaElement = mediaContainer.querySelector('.zoomed-content');
+            const controls = mediaContainer.querySelector('.media-controls');
+
+            if (loader) loader.remove();
+            
+            if (mediaElement) {
+                mediaElement.style.opacity = '1'; // Fade media in
+                
+                if (mediaElement.tagName === 'VIDEO') {
+                    mediaElement.play().catch(e => console.log("Video autoplay blocked after load:", e));
+                }
+            }
+            if (controls) {
+                controls.style.opacity = '1'; // Show controls
+            }
+        }
+    };
+
+    // 1. CREATE AND SHOW LOADER
+    const loader = document.createElement('div');
+    loader.classList.add('media-loader'); // Assumes you have CSS for this spinner
+    mediaContainer.appendChild(loader);
+    
+    // Start the minimum 2-second timer
+    setTimeout(() => {
+        timerFinished = true;
+        showMedia();
+    }, MIN_LOAD_TIME_MS);
+    
+    // Create media controls container
     const controls = document.createElement('div');
     controls.classList.add('media-controls');
+    controls.style.opacity = '0'; // Hide controls until media loads
+    controls.style.transition = 'opacity 0.3s ease'; 
+
+    let mediaElement;
+    let isVideo = false;
 
     if (mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm')) {
+        // --- VIDEO LOGIC ---
+        isVideo = true;
         const video = document.createElement('video');
         video.src = mediaSrc;
         video.autoplay = true;
@@ -2163,9 +2263,12 @@ function loadAndPlayMedia(card, mediaSrc) {
         video.muted = true;
         video.playsInline = true;
         video.classList.add('zoomed-content');
+        video.style.opacity = '0'; // Start invisible
+        video.style.transition = 'opacity 0.4s ease'; 
         mediaContainer.appendChild(video);
+        mediaElement = video;
 
-        // Mute/Unmute button (only for videos)
+        // Mute/Unmute button
         const muteButton = document.createElement('button');
         muteButton.classList.add('media-button');
         muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
@@ -2177,24 +2280,6 @@ function loadAndPlayMedia(card, mediaSrc) {
         });
         controls.appendChild(muteButton);
 
-        // Fullscreen button
-        const fullscreenButton = document.createElement('button');
-        fullscreenButton.classList.add('media-button');
-        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
-        fullscreenButton.title = 'View Fullscreen';
-        fullscreenButton.addEventListener('click', () => {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-        });
-        controls.appendChild(fullscreenButton);
-
-        mediaContainer.appendChild(controls);
-
         // Toggle play/pause on video click/touch
         video.addEventListener('click', () => {
             if (video.paused) {
@@ -2204,52 +2289,84 @@ function loadAndPlayMedia(card, mediaSrc) {
             }
         });
 
-        // Ensure video starts playing when fully visible
-        setTimeout(() => {
-            video.play().catch(e => {
-                console.log("Video playback blocked:", e);
-                mediaContainer.innerHTML = '';
-                const fallback = document.createElement('div');
-                fallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
-                fallback.textContent = 'Failed to load video. Please check the file or permissions.';
-                mediaContainer.appendChild(fallback);
-            });
-        }, SLIDE_DURATION_MS + 50);
-
         // Update button states on fullscreen change
         video.addEventListener('fullscreenchange', () => {
-            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
-            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            // Find fullscreen button dynamically, or assume it's the last child added to controls
+            const fsButton = controls.querySelector('.media-button:last-child'); 
+            if (fsButton) {
+                fsButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+                fsButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            }
         });
-    } else if (mediaSrc.endsWith('.gif') || mediaSrc.endsWith('.jpg')) {
+
+    } else if (mediaSrc.endsWith('.gif') || mediaSrc.endsWith('.jpg') || mediaSrc.endsWith('.png')) {
+        // --- IMAGE LOGIC ---
         const img = document.createElement('img');
         img.src = mediaSrc;
         img.classList.add('zoomed-content');
+        img.style.opacity = '0'; // Start invisible
+        img.style.transition = 'opacity 0.4s ease'; // Add fade-in transition
         mediaContainer.appendChild(img);
-
-        // Fullscreen button (for images)
-        const fullscreenButton = document.createElement('button');
-        fullscreenButton.classList.add('media-button');
-        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
-        fullscreenButton.title = 'View Fullscreen';
-        fullscreenButton.addEventListener('click', () => {
-            if (img.requestFullscreen) {
-                img.requestFullscreen();
-            } else if (img.webkitRequestFullscreen) {
-                img.webkitRequestFullscreen();
-            } else if (img.msRequestFullscreen) {
-                img.msRequestFullscreen();
-            }
-        });
-        controls.appendChild(fullscreenButton);
-
-        mediaContainer.appendChild(controls);
+        mediaElement = img;
 
         // Update button states on fullscreen change
         img.addEventListener('fullscreenchange', () => {
-            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
-            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            // Find fullscreen button dynamically
+            const fsButton = controls.querySelector('.media-button:last-child');
+            if (fsButton) {
+                fsButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+                fsButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            }
         });
+    }
+
+    // Fullscreen button (for both)
+    // Fullscreen button (for both)
+const fullscreenButton = document.createElement('button');
+fullscreenButton.classList.add('media-button');
+fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+fullscreenButton.title = 'View Fullscreen';
+
+fullscreenButton.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+        // If already in fullscreen, exit it
+        document.exitFullscreen().catch(e => console.error("Exit Fullscreen failed:", e));
+    } else if (mediaElement && mediaElement.requestFullscreen) {
+        // Otherwise, enter fullscreen
+        mediaElement.requestFullscreen().catch(e => console.error("Fullscreen failed:", e));
+    }
+});
+controls.appendChild(fullscreenButton);
+    mediaContainer.appendChild(controls);
+
+
+    // 2. HIDE LOADER WHEN MEDIA IS READY AND 2 SECONDS HAVE PASSED
+    if (mediaElement) {
+        const mediaReadyEvent = isVideo ? 'loadeddata' : 'load';
+
+        mediaElement.addEventListener(mediaReadyEvent, () => {
+            mediaReady = true;
+            showMedia(); // Check if the timer is also finished
+        }, { once: true });
+        
+        // Handle media loading errors (like 404)
+        mediaElement.addEventListener('error', () => {
+            loader.remove(); // Remove loader
+            mediaElement.remove(); // Remove broken media element
+            controls.remove(); // Remove controls
+            const errorFallback = document.createElement('div');
+            errorFallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
+            errorFallback.textContent = `Failed to load ${isVideo ? 'video' : 'image'}. Please check the media source.`;
+            mediaContainer.appendChild(errorFallback);
+        }, { once: true });
+
+    } else {
+        // Handle case where mediaSrc is neither video nor image
+        loader.remove();
+        const fallback = document.createElement('div');
+        fallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
+        fallback.textContent = 'Unsupported media file type.';
+        mediaContainer.appendChild(fallback);
     }
 }
     function stopAndRemoveMedia(card) {
@@ -2460,7 +2577,7 @@ function loadAndPlayMedia(card, mediaSrc) {
             card.style.width = "600px";
             card.style.maxWidth = "90%";
             card.style.height = "auto";
-            card.style.minHeight = "500px";
+            card.style.minHeight = "auto";
             card.style.transform = "translate(-50%, -50%)";
 
             if (isZoom) {
@@ -2575,6 +2692,28 @@ function loadAndPlayMedia(card, mediaSrc) {
         if (e.key === "ArrowRight") navigate(1);
         if (e.key === "Escape") closePreview(activeCard, 0); 
     });
+
+// =========================================================
+// ADD FULLSCREEN EXIT LISTENER HERE
+// =========================================================
+document.addEventListener('fullscreenchange', () => {
+    // Find the currently active media element
+    const currentMediaElement = activeCard ? activeCard.querySelector('.zoomed-content') : null;
+
+    if (currentMediaElement) {
+        // If we are NOT in fullscreen anymore (user pressed ESC or back button on mobile)
+        if (!document.fullscreenElement) {
+            
+            // Re-apply the fullscreen button update logic here, 
+            // as the media-specific listeners might not catch all native exits.
+            const fsButton = activeCard.querySelector('.media-button:last-child');
+            if (fsButton) {
+                 fsButton.innerHTML = '<i class="fas fa-expand"></i>';
+                 fsButton.title = 'View Fullscreen';
+            }
+        }
+    }
+});
 //
 // Menu
 //
@@ -2617,5 +2756,4 @@ document.addEventListener('click', (event) => {
 
 </script>
 </body>
-
 </html>
