@@ -121,7 +121,66 @@ header nav a.active {color:#82cd93;border-bottom:2px solid #82cd93;} /* Changed 
 
 
 
+.media-loader {
+    /* Style for a simple spinning loader */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid #ffffff; /* Loader color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10; /* Ensure it's above the blank background */
+}
 
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+/* Apply to all media elements (img, video) that are in fullscreen mode */
+:fullscreen img,
+:fullscreen video,
+:-webkit-full-screen img,
+:-webkit-full-screen video,
+:-moz-full-screen img,
+:-moz-full-screen video,
+:-ms-fullscreen img,
+:-ms-fullscreen video {
+    /* The key property: ensures the entire image/video is visible */
+    object-fit: contain !important; 
+    
+    /* Ensure it fills the entire fullscreen container */
+    width: 100% !important;
+    height: 100% !important;
+    
+    /* Set the background to black for the "letterbox" areas */
+    background-color: black !important;
+}
+
+/* Specific fix for the .zoomed-content class on media in fullscreen */
+.zoomed-content:fullscreen,
+.zoomed-content:-webkit-full-screen {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Media query to target mobile devices (screens 768px wide or smaller) */
+@media (max-width: 768px) {
+    /* 1. Target the work-card element, which receives the inline transition style. */
+    .work-card {
+        /* This rule overrides the JS-set "all 0.4s..." transition */
+        transition: none !important;
+        
+        /* 2. Also ensure no animations run (for navigation slide transitions) */
+        animation: none !important;
+    }
+}
 
 
 
@@ -1032,6 +1091,46 @@ h4 {     font-size: 1em;
   });
 
 
+const tabs = document.querySelectorAll("sort .item");
+const sections = document.querySelectorAll(".portfolio-section");
+const sortBar = document.querySelector("sort");
+const headerOffset = 80; // height of your fixed header or extra space
+
+// Click to scroll
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const id = tab.dataset.target;
+    const target = document.getElementById(id);
+    if (target) {
+      const y = target.offsetTop - sortBar.offsetHeight - headerOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  });
+});
+
+// Scrollspy: highlight active tab when 50% of section is visible
+window.addEventListener("scroll", () => {
+  const scrollMiddle = window.scrollY + window.innerHeight / 2; // middle of viewport
+  let current = null;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    if (scrollMiddle >= sectionTop && scrollMiddle < sectionBottom) {
+      current = section.id;
+    }
+  });
+
+  if (current) {
+    tabs.forEach(tab => {
+      tab.classList.remove("active");
+      if (tab.dataset.target === current) tab.classList.add("active");
+    });
+  }
+});
 
 // 🔑 CONSTANTS
     const SLIDE_DURATION_MS = 400; 
@@ -1108,11 +1207,57 @@ function loadAndPlayMedia(card, mediaSrc) {
     const mediaContainer = card.querySelector('.work-media-zoom');
     mediaContainer.innerHTML = ''; // Clear previous content
 
-    // Create media controls container for both videos and images
+    // --- State Tracking for 2-second Minimum Load ---
+    let mediaReady = false;
+    let timerFinished = false;
+    const MIN_LOAD_TIME_MS = 0; // 2 seconds
+
+    // Function to run when both the media is loaded AND the 2-second timer is up
+    const showMedia = () => {
+        if (mediaReady && timerFinished) {
+            // Find the loader element to remove it
+            const loader = mediaContainer.querySelector('.media-loader');
+            const mediaElement = mediaContainer.querySelector('.zoomed-content');
+            const controls = mediaContainer.querySelector('.media-controls');
+
+            if (loader) loader.remove();
+            
+            if (mediaElement) {
+                mediaElement.style.opacity = '1'; // Fade media in
+                
+                if (mediaElement.tagName === 'VIDEO') {
+                    mediaElement.play().catch(e => console.log("Video autoplay blocked after load:", e));
+                }
+            }
+            if (controls) {
+                controls.style.opacity = '1'; // Show controls
+            }
+        }
+    };
+
+    // 1. CREATE AND SHOW LOADER
+    const loader = document.createElement('div');
+    loader.classList.add('media-loader'); // Assumes you have CSS for this spinner
+    mediaContainer.appendChild(loader);
+    
+    // Start the minimum 2-second timer
+    setTimeout(() => {
+        timerFinished = true;
+        showMedia();
+    }, MIN_LOAD_TIME_MS);
+    
+    // Create media controls container
     const controls = document.createElement('div');
     controls.classList.add('media-controls');
+    controls.style.opacity = '0'; // Hide controls until media loads
+    controls.style.transition = 'opacity 0.3s ease'; 
+
+    let mediaElement;
+    let isVideo = false;
 
     if (mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm')) {
+        // --- VIDEO LOGIC ---
+        isVideo = true;
         const video = document.createElement('video');
         video.src = mediaSrc;
         video.autoplay = true;
@@ -1120,9 +1265,12 @@ function loadAndPlayMedia(card, mediaSrc) {
         video.muted = true;
         video.playsInline = true;
         video.classList.add('zoomed-content');
+        video.style.opacity = '0'; // Start invisible
+        video.style.transition = 'opacity 0.4s ease'; 
         mediaContainer.appendChild(video);
+        mediaElement = video;
 
-        // Mute/Unmute button (only for videos)
+        // Mute/Unmute button
         const muteButton = document.createElement('button');
         muteButton.classList.add('media-button');
         muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
@@ -1134,24 +1282,6 @@ function loadAndPlayMedia(card, mediaSrc) {
         });
         controls.appendChild(muteButton);
 
-        // Fullscreen button
-        const fullscreenButton = document.createElement('button');
-        fullscreenButton.classList.add('media-button');
-        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
-        fullscreenButton.title = 'View Fullscreen';
-        fullscreenButton.addEventListener('click', () => {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-        });
-        controls.appendChild(fullscreenButton);
-
-        mediaContainer.appendChild(controls);
-
         // Toggle play/pause on video click/touch
         video.addEventListener('click', () => {
             if (video.paused) {
@@ -1161,55 +1291,86 @@ function loadAndPlayMedia(card, mediaSrc) {
             }
         });
 
-        // Ensure video starts playing when fully visible
-        setTimeout(() => {
-            video.play().catch(e => {
-                console.log("Video playback blocked:", e);
-                mediaContainer.innerHTML = '';
-                const fallback = document.createElement('div');
-                fallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
-                fallback.textContent = 'Failed to load video. Please check the file or permissions.';
-                mediaContainer.appendChild(fallback);
-            });
-        }, SLIDE_DURATION_MS + 50);
-
         // Update button states on fullscreen change
         video.addEventListener('fullscreenchange', () => {
-            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
-            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            // Find fullscreen button dynamically, or assume it's the last child added to controls
+            const fsButton = controls.querySelector('.media-button:last-child'); 
+            if (fsButton) {
+                fsButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+                fsButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            }
         });
-    } else if (mediaSrc.endsWith('.gif') || mediaSrc.endsWith('.jpg')) {
+
+    } else if (mediaSrc.endsWith('.gif') || mediaSrc.endsWith('.jpg') || mediaSrc.endsWith('.png')) {
+        // --- IMAGE LOGIC ---
         const img = document.createElement('img');
         img.src = mediaSrc;
         img.classList.add('zoomed-content');
+        img.style.opacity = '0'; // Start invisible
+        img.style.transition = 'opacity 0.4s ease'; // Add fade-in transition
         mediaContainer.appendChild(img);
-
-        // Fullscreen button (for images)
-        const fullscreenButton = document.createElement('button');
-        fullscreenButton.classList.add('media-button');
-        fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
-        fullscreenButton.title = 'View Fullscreen';
-        fullscreenButton.addEventListener('click', () => {
-            if (img.requestFullscreen) {
-                img.requestFullscreen();
-            } else if (img.webkitRequestFullscreen) {
-                img.webkitRequestFullscreen();
-            } else if (img.msRequestFullscreen) {
-                img.msRequestFullscreen();
-            }
-        });
-        controls.appendChild(fullscreenButton);
-
-        mediaContainer.appendChild(controls);
+        mediaElement = img;
 
         // Update button states on fullscreen change
         img.addEventListener('fullscreenchange', () => {
-            fullscreenButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
-            fullscreenButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            // Find fullscreen button dynamically
+            const fsButton = controls.querySelector('.media-button:last-child');
+            if (fsButton) {
+                fsButton.innerHTML = document.fullscreenElement ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+                fsButton.title = document.fullscreenElement ? 'Exit Fullscreen' : 'View Fullscreen';
+            }
         });
     }
-}
 
+    // Fullscreen button (for both)
+    // Fullscreen button (for both)
+const fullscreenButton = document.createElement('button');
+fullscreenButton.classList.add('media-button');
+fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+fullscreenButton.title = 'View Fullscreen';
+
+fullscreenButton.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+        // If already in fullscreen, exit it
+        document.exitFullscreen().catch(e => console.error("Exit Fullscreen failed:", e));
+    } else if (mediaElement && mediaElement.requestFullscreen) {
+        // Otherwise, enter fullscreen
+        mediaElement.requestFullscreen().catch(e => console.error("Fullscreen failed:", e));
+    }
+});
+controls.appendChild(fullscreenButton);
+    mediaContainer.appendChild(controls);
+
+
+    // 2. HIDE LOADER WHEN MEDIA IS READY AND 2 SECONDS HAVE PASSED
+    if (mediaElement) {
+        const mediaReadyEvent = isVideo ? 'loadeddata' : 'load';
+
+        mediaElement.addEventListener(mediaReadyEvent, () => {
+            mediaReady = true;
+            showMedia(); // Check if the timer is also finished
+        }, { once: true });
+        
+        // Handle media loading errors (like 404)
+        mediaElement.addEventListener('error', () => {
+            loader.remove(); // Remove loader
+            mediaElement.remove(); // Remove broken media element
+            controls.remove(); // Remove controls
+            const errorFallback = document.createElement('div');
+            errorFallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
+            errorFallback.textContent = `Failed to load ${isVideo ? 'video' : 'image'}. Please check the media source.`;
+            mediaContainer.appendChild(errorFallback);
+        }, { once: true });
+
+    } else {
+        // Handle case where mediaSrc is neither video nor image
+        loader.remove();
+        const fallback = document.createElement('div');
+        fallback.style.cssText = 'color: #fff; text-align: center; padding: 20px;';
+        fallback.textContent = 'Unsupported media file type.';
+        mediaContainer.appendChild(fallback);
+    }
+}
     function stopAndRemoveMedia(card) {
         const mediaContainer = card.querySelector('.work-media-zoom');
         const video = mediaContainer.querySelector('video');
@@ -1418,7 +1579,7 @@ function loadAndPlayMedia(card, mediaSrc) {
             card.style.width = "600px";
             card.style.maxWidth = "90%";
             card.style.height = "auto";
-            card.style.minHeight = "500px";
+            card.style.minHeight = "auto";
             card.style.transform = "translate(-50%, -50%)";
 
             if (isZoom) {
@@ -1533,6 +1694,28 @@ function loadAndPlayMedia(card, mediaSrc) {
         if (e.key === "ArrowRight") navigate(1);
         if (e.key === "Escape") closePreview(activeCard, 0); 
     });
+
+// =========================================================
+// ADD FULLSCREEN EXIT LISTENER HERE
+// =========================================================
+document.addEventListener('fullscreenchange', () => {
+    // Find the currently active media element
+    const currentMediaElement = activeCard ? activeCard.querySelector('.zoomed-content') : null;
+
+    if (currentMediaElement) {
+        // If we are NOT in fullscreen anymore (user pressed ESC or back button on mobile)
+        if (!document.fullscreenElement) {
+            
+            // Re-apply the fullscreen button update logic here, 
+            // as the media-specific listeners might not catch all native exits.
+            const fsButton = activeCard.querySelector('.media-button:last-child');
+            if (fsButton) {
+                 fsButton.innerHTML = '<i class="fas fa-expand"></i>';
+                 fsButton.title = 'View Fullscreen';
+            }
+        }
+    }
+});
 //
 // Menu
 //

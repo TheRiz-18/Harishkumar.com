@@ -582,6 +582,17 @@ font-family:"poppins",sans-serif;
     transition: width 0.4s ease, height 0.4s ease; 
 }
 
+/* Media query to target mobile devices (screens 768px wide or smaller) */
+@media (max-width: 768px) {
+    /* 1. Target the work-card element, which receives the inline transition style. */
+    .work-card {
+        /* This rule overrides the JS-set "all 0.4s..." transition */
+        transition: none !important;
+        
+        /* 2. Also ensure no animations run (for navigation slide transitions) */
+        animation: none !important;
+    }
+}
 /* Responsive */
 /* ===========================
    📱 MOBILE COMPACT VERSION
