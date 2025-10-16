@@ -222,17 +222,16 @@ padding:1rem;border-radius:50px 50px 0px 50px;
    MOBILE COMPACT VERSION
 =========================== */
 @media (max-width: 768px) {
-
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: url('images/Bg/Riz-mobile.jpg') no-repeat center center fixed;
-        background-size: cover;
-        background-color: #000; /* fallback color when image isn't visible */
-        overscroll-behavior: none; /* Prevent white overscroll background */
-        -webkit-overflow-scrolling: touch;
-    }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url('images/Bg/Riz-mobile.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: #000;
+    overscroll-behavior: auto; /* Allow normal refresh & bounce */
+    -webkit-overflow-scrolling: touch;
+  }
 
     body {
         margin-top: 80%;
