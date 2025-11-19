@@ -189,7 +189,7 @@ WORK CARD
 /* Update work-card to avoid fixed height */
 .work-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 10px;
     background: #2a2a2a;
     cursor: pointer;
@@ -211,6 +211,30 @@ margin-bottom: 10px;
     object-fit: cover;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     transition: all 0.4s ease, clip-path 0.4s ease;
+}
+
+
+.work-card:hover {
+    /* Optional: Moves the entire card up slightly for a 'lift' effect */
+    
+    /* 🎨 Shadow/Glow Effect: Combines a large blur with a sharp 2px "border" */
+    /* Color: rgba(177, 156, 217, 1) is a purple/indigo color */
+    box-shadow: 
+        0 5px 10px rgba(196, 255, 204, 0.6), /* Diffused shadow for depth */
+        0 0 0 1px rgba(196, 255, 204, 1);   /* Sharp, colored border effect */
+    
+    /* Ensure the hovered card layers above adjacent content */
+    z-index: 5; 
+}
+
+/* 3. Style the image child element within the hovered card (for the upward movement) */
+.work-card:hover .work-image {
+    /* Moves the image up inside the hovered card */
+    transform: translateY(-15px); 
+    
+    /* Ensures the image layer is above the text/overlay inside the same card */
+    position: relative; 
+    z-index: 10; 
 }
 
 /* Adjust zoomed state to be more flexible */
@@ -256,10 +280,7 @@ padding:0;
     }
 }
 
-.work-card:hover { 
-    transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
-    box-shadow: 0 8px 16px rgba(196, 255, 204, 0.8); /* Adjusted hover shadow to green */
-}
+
 
 .work-overlay {
     padding: 10px; /* Reduced padding to minimize vertical space */

@@ -264,7 +264,7 @@ grid-template-columns: repeat(4, 1fr);
 /* Update work-card to avoid fixed height */
 .work-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 10px;
     background: #2a2a2a;
     cursor: pointer;
@@ -286,6 +286,30 @@ margin-bottom: 10px;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     transition: all 0.4s ease, clip-path 0.4s ease;
 }
+
+.work-card:hover {
+    /* Optional: Moves the entire card up slightly for a 'lift' effect */
+    
+    /* 🎨 Shadow/Glow Effect: Combines a large blur with a sharp 2px "border" */
+    /* Color: rgba(177, 156, 217, 1) is a purple/indigo color */
+    box-shadow: 
+        0 5px 10px rgba(177, 156, 217, 0.6), /* Diffused shadow for depth */
+        0 0 0 1px rgba(177, 156, 217, 1);   /* Sharp, colored border effect */
+    
+    /* Ensure the hovered card layers above adjacent content */
+    z-index: 5; 
+}
+
+/* 3. Style the image child element within the hovered card (for the upward movement) */
+.work-card:hover .work-image {
+    /* Moves the image up inside the hovered card */
+    transform: translateY(-15px); 
+    
+    /* Ensures the image layer is above the text/overlay inside the same card */
+    position: relative; 
+    z-index: 10; 
+}
+
 
 /* Adjust zoomed state to be more flexible */
 .work-card.zoomed {
@@ -329,10 +353,7 @@ padding:0;
     }
 }
 
-.work-card:hover { 
-    transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
-    box-shadow: 0 8px 16px rgba(220,208,255, 0.8);
-}
+
 
 /* Images & overlay (Small Preview State) */
 .work-image { 
@@ -1446,6 +1467,23 @@ text-allignment: center;
 <h4>VIDEO EDITS</h4>
         <div class="works-grid">
             
+<div class="work-card" data-video-src="Works/Works/Video Edits/ARG Agri Machinery.mp4">
+                <img src="Works/Works/Thumbnail/ARG Agri Machinery.jpg" alt="Project 1" class="work-image">
+                <div class="work-media-zoom"> <div class="media-loader"></div> </div> <div class="work-overlay">
+                    <h3 class="work-title">ARG Agri Machinery</h3>
+                    <p class="work-description">ARG Agri Machinery is a manufacturer of agricultural equipment.</p>
+                </div>
+                <div class="work-details">
+                    <p>This video edit, created for an interview, demonstrated my technical proficiency in storytelling and sequencing and highlighted my direct fit for the role..</p>
+                    <div class="project-stats">
+                        <p><strong>Role:</strong> Video Editor</p>
+                        <p><strong>Year:</strong> 2025</p>
+                        
+                    </div>
+                </div>
+                <button class="close-button" onclick="closePreview(event, 0)">×</button> 
+            </div>
+            
 
 <div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-1.mp4">
                 <img src="Works/Works/Thumbnail/Sonali-1.jpg" alt="Project 1" class="work-image">
@@ -1463,7 +1501,8 @@ text-allignment: center;
                 </div>
                 <button class="close-button" onclick="closePreview(event, 0)">×</button> 
             </div>
-            
+
+
             <div class="work-card" data-video-src="Works/Works/Video Edits/Sonali-2.mp4">
     <img src="Works/Works/Thumbnail/Sonali-2.jpg" alt="Project 2" class="work-image">
     <div class="work-media-zoom"> <div class="media-loader"></div> </div>
@@ -1473,6 +1512,24 @@ text-allignment: center;
     </div>
     <div class="work-details">
         <p>This was a demonstration video edit, specifically crafted for an interview, allowing me to showcase my technical skills in storytelling and sequencing. It was instrumental in illustrating my direct applicability to the role's requirements.</p>
+        <div class="project-stats">
+            <p><strong>Role:</strong> Video Editor</p>
+            <p><strong>Year:</strong> 2025</p>
+        </div>
+    </div>
+    <button class="close-button" onclick="closePreview(event, 0)">×</button>
+</div>
+
+            
+            <div class="work-card" data-video-src="Works/Works/Video Edits/Dr.keerthana.mp4">
+    <img src="Works/Works/Thumbnail/Dr.keerthana.jpg" alt="Project 2" class="work-image">
+    <div class="work-media-zoom"> <div class="media-loader"></div> </div>
+    <div class="work-overlay">
+        <h3 class="work-title">Dr.Keerthana - Oily Skin Moisturizer</h3>
+        <p class="work-description">Edited a content creation video for Dr. Keerthana detailing the uses of an Oily Skin Moisturizer.</p>
+    </div>
+    <div class="work-details">
+        <p>I managed and executed the video edit for a content piece featuring Dr. Keerthana, specifically focusing on the topic of an Oily Skin Moisturizer. This project showcased my ability to sequence and deliver high-quality content tailored for a professional skincare expert.</p>
         <div class="project-stats">
             <p><strong>Role:</strong> Video Editor</p>
             <p><strong>Year:</strong> 2025</p>
